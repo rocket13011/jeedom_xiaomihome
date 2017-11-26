@@ -85,7 +85,7 @@
                 "subtype": "other",
                 "display": {
 					"icon": "<i class=\"fa fa-power-off\"><\/i>",
-			"generic_type":"LIGHT_ON"
+			"generic_type":"LIGHT_OFF"
                 },
                 "configuration" : {
         			"request" : "turn off"
