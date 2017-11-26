@@ -69,13 +69,14 @@
                 "type": "action",
                 "subtype": "other",
                 "display": {
-					"icon": "<i class=\"fa fa-lightbulb-o\"><\/i>"
+					"icon": "<i class=\"fa fa-lightbulb-o\"><\/i>",
+			"generic_type":"LIGHT_ON"
                 },
                 "configuration" : {
         			"request" : "turn on"
         		},
                 "isVisible": 1,
-                "value": "Statut",
+                "value": "Luminosité Info",
                 "logicalId": "on"
             },
             {
@@ -83,13 +84,14 @@
                 "type": "action",
                 "subtype": "other",
                 "display": {
-					"icon": "<i class=\"fa fa-power-off\"><\/i>"
+					"icon": "<i class=\"fa fa-power-off\"><\/i>",
+			"generic_type":"LIGHT_ON"
                 },
                 "configuration" : {
         			"request" : "turn off"
         		},
                 "isVisible": 1,
-                "value": "Statut",
+                "value": "Luminosité Info",
                 "logicalId": "off"
             },
             {
