@@ -185,7 +185,7 @@
                 "type": "info",
                 "subtype": "numeric",
                 "display": {
-					"generic_type": "LIGHT_SLIDER"
+					"generic_type": "LIGHT_STATE"
                 },
                 "isVisible": 0,
                 "isHistorized": 0,
