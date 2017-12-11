@@ -1,49 +1,49 @@
 {
     "gateway": {
         "name": "Gateway",
-		"groupe" : "Aquara",
-		"configuration" : {
-			"model" : "gateway",
-            		"type" : "aquara"
-		},
+        "groupe" : "Aquara",
+        "configuration" : {
+            "model" : "gateway",
+            "type" : "aquara"
+        },
         "commands": [
             {
                 "name": "Online",
                 "type": "info",
                 "subtype": "binary",
                 "display": {
-					"generic_type": "DONT"
+                    "generic_type": "DONT"
                 },
                 "isVisible": 0,
                 "isHistorized": 0,
                 "logicalId": "online",
                 "template": {
-					"dashboard": "line",
-					"mobile": "line"
-		}
+                    "dashboard": "line",
+                    "mobile": "line"
+                }
             },
-			{
+            {
                 "name": "Capteur Luminosité",
                 "type": "info",
                 "subtype": "numeric",
                 "display": {
-					"icon": "<i class=\"fa fa-sun-o\"><\/i>",
-					"generic_type": "BRIGHTNESS"
-		},
+                    "icon": "<i class=\"fa fa-sun-o\"><\/i>",
+                    "generic_type": "BRIGHTNESS"
+                },
                 "isVisible": 1,
                 "isHistorized": 0,
                 "logicalId": "illumination",
-		"template": {
-					"dashboard": "line",
-					"mobile": "line"
-		}
+                "template": {
+                    "dashboard": "line",
+                    "mobile": "line"
+                }
             },
             {
                 "name": "IP Gateway",
                 "type": "info",
                 "subtype": "string",
                 "display": {
-					"generic_type": "DONT"
+                    "generic_type": "DONT"
                 },
                 "isVisible": 0,
                 "isHistorized": 0,
@@ -54,23 +54,23 @@
                 "type": "info",
                 "subtype": "string",
                 "display": {
-					"generic_type": "LIGHT_COLOR"
+                    "generic_type": "LIGHT_COLOR"
                 },
                 "isVisible": 0,
                 "isHistorized": 0,
                 "logicalId": "rgb"
             },
-			{
+            {
                 "name": "Définir Couleur",
                 "type": "action",
                 "subtype": "color",
                 "display": {
-					"generic_type": "LIGHT_SET_COLOR"
+                    "generic_type": "LIGHT_SET_COLOR"
                 },
                 "configuration" : {
-        			"switch" : "rgb",
-                   		"request" : "rgb"
-        	},
+                    "switch" : "rgb",
+                    "request" : "rgb"
+                },
                 "value": "Couleur Anneau",
                 "isVisible": 1,
                 "logicalId": "rgb-set"
@@ -80,12 +80,12 @@
                 "type": "action",
                 "subtype": "other",
                 "display": {
-					"icon": "<i class=\"fa fa-sun-o\"><\/i>"
+                    "icon": "<i class=\"fa fa-sun-o\"><\/i>"
                 },
                 "configuration" : {
-        			"switch" : "rgb"
-        	},
-		"value": "Luminosité Anneau",
+                    "switch" : "rgb"
+                },
+                "value": "Luminosité Anneau",
                 "isVisible": 1,
                 "logicalId": "on"
             },
@@ -94,12 +94,12 @@
                 "type": "action",
                 "subtype": "other",
                 "display": {
-					"icon": "<i class=\"fa fa-power-off\"><\/i>"
+                    "icon": "<i class=\"fa fa-power-off\"><\/i>"
                 },
                 "configuration" : {
-        			"switch" : "rgb"
-        	},
-		"value": "Luminosité Anneau",
+                    "switch" : "rgb"
+                },
+                "value": "Luminosité Anneau",
                 "isVisible": 1,
                 "logicalId": "off"
             },
@@ -108,12 +108,12 @@
                 "type": "action",
                 "subtype": "other",
                 "display": {
-					"icon": "<i class=\"fa fa-stop\"><\/i>"
+                    "icon": "<i class=\"fa fa-stop\"><\/i>"
                 },
                 "configuration" : {
-        			"switch" : "mid",
-                    		"request": 10000
-        	},
+                    "switch" : "mid",
+                    "request": 10000
+                },
                 "isVisible": 1,
                 "logicalId": "mid-stop"
             },
@@ -122,7 +122,7 @@
                 "type": "info",
                 "subtype": "numeric",
                 "display": {
-					"generic_type": "LIGHT_STATE"
+                    "generic_type": "LIGHT_STATE"
                 },
                 "isVisible": 0,
                 "isHistorized": 0,
@@ -133,15 +133,15 @@
                 "type": "action",
                 "subtype": "slider",
                 "display": {
-					"generic_type": "LIGHT_SLIDER",
-					"forceReturnLineBefore": 1
+                    "generic_type": "LIGHT_SLIDER",
+                    "forceReturnLineBefore": 1
                 },
                 "configuration" : {
-        			"switch" : "rgb",
-                    		"request" : "brightness",
-                    		"minValue" : 0,
-                    		"maxValue" : 100
-        	},
+                    "switch" : "rgb",
+                    "request" : "brightness",
+                    "minValue" : 0,
+                    "maxValue" : 100
+                },
                 "value": "Luminosité Anneau",
                 "isVisible": 1,
                 "logicalId": "brightness-set"
@@ -151,7 +151,7 @@
                 "type": "info",
                 "subtype": "numeric",
                 "display": {
-					"generic_type": "DONT"
+                    "generic_type": "DONT"
                 },
                 "isVisible": 0,
                 "isHistorized": 0,
@@ -162,14 +162,14 @@
                 "type": "action",
                 "subtype": "slider",
                 "display": {
-					"generic_type": "DONT"
+                    "generic_type": "DONT"
                 },
                 "configuration" : {
-        			"switch" : "vol",
-                    		"request" : "vol",
-                    		"minValue" : 0,
-                    		"maxValue" : 100
-        	},
+                    "switch" : "vol",
+                    "request" : "vol",
+                    "minValue" : 0,
+                    "maxValue" : 100
+                },
                 "isVisible": 1,
                 "logicalId": "vol-set"
             },
@@ -178,13 +178,13 @@
                 "type": "action",
                 "subtype": "message",
                 "display": {
-					"generic_type": "DONT",
+                    "generic_type": "DONT",
                     "message_disable": 1,
                     "title_placeholder" : "ID du son"
                 },
                 "configuration" : {
-        			"switch" : "mid"
-        		},
+                    "switch" : "mid"
+                },
                 "isVisible": 0,
                 "logicalId": "mid-set"
             },
@@ -193,13 +193,13 @@
                 "type": "action",
                 "subtype": "message",
                 "display": {
-					"generic_type": "DONT",
+                    "generic_type": "DONT",
                     "title_placeholder" : "ID du son",
                     "message_placeholder" : "Volume"
                 },
                 "configuration" : {
-        			"switch" : "mid"
-        		},
+                    "switch" : "mid"
+                },
                 "isVisible": 0,
                 "logicalId": "mid-scenar"
             },
@@ -216,6 +216,19 @@
                 },
                 "isVisible": 1,
                 "logicalId": "mid-list"
+            },
+            {
+                "name": "Rafraichir",
+                "type": "action",
+                "subtype": "other",
+                "display": {
+                    "generic_type": "DONT"
+                },
+                "configuration" : {
+                    "switch" : "read"
+                },
+                "isVisible": 0,
+                "logicalId": "refresh"
             }
         ]
     }
