@@ -38,7 +38,7 @@ if (isset($result['devices'])) {
 		$explode = explode('_',$key);
 		$key = $explode[0];
 		if ($key == 'aquara'){
-			if (!($datas['cmd'] == 'heartbeat' || $datas['cmd'] == 'report')) {
+			if (!($datas['cmd'] == 'heartbeat' || $datas['cmd'] == 'report' || $datas['cmd'] == 'read_ack')) {
 				continue;
 			}
 			if (!isset($datas['sid'])) {
