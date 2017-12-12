@@ -652,7 +652,7 @@ class xiaomihomeCmd extends cmd {
                     $password = $xiaomihome->getConfiguration('password','');
                     $value = json_encode(array('apikey' => jeedom::getApiKey('xiaomihome'), 'type' => 'aquara','cmd' => 'read', 'dest' => $gateway , 'password' => $password,'sidG' => $xiaomihome->getConfiguration('sid'), 'sid' => $eqLogic->getConfiguration('sid')));
                     xiaomihome::sendDaemon($value);
-                    $break;
+                    break;
                 }
 
                 switch ($this->getSubType()) {

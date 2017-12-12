@@ -4,12 +4,12 @@
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
-# 
+#
 # Jeedom is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with Jeedom. If not, see <http://www.gnu.org/licenses/>.
 
@@ -34,12 +34,12 @@ try:
 except ImportError:
 	print "Error: importing module from jeedom folder"
 	sys.exit(1)
-	
+
 try:
     import queue
 except ImportError:
     import Queue as queue
-	
+
 def push_data_from_aquara(model, sid, cmd,short_id,token, data, type,source):
 	data_to_send = {}
 	data_to_send['model'] = model
@@ -72,7 +72,7 @@ def read_socket(name):
 					logging.error("Invalid apikey from socket : " + str(message))
 					return
 				logging.debug('Received command from jeedom : '+str(message['cmd']))
-				if message['cmd'] == 'send':
+				if message['cmd'] == 'send' || message['cmd'] == 'read':
 					logging.debug('Executing action on : '+str(message['model']))
 					if message['type'] == 'aquara':
 						devices.aquara.execute_action(message)
@@ -108,7 +108,7 @@ def xiaomiconnector(name) :
 def handler(signum=None, frame=None):
 	logging.debug("Signal %i caught, exiting..." % int(signum))
 	shutdown()
-	
+
 def shutdown():
 	logging.debug("Shutdown")
 	logging.debug("Removing PID file " + str(globals.pidfile))
@@ -123,7 +123,7 @@ def shutdown():
 	logging.debug("Exit 0")
 	sys.stdout.flush()
 	os._exit(0)
-	
+
 globals.log_level = "error"
 globals.socketport = 55019
 globals.sockethost = '127.0.0.1'
