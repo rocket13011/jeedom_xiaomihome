@@ -21,7 +21,7 @@ function xiaomihome_update() {
 	foreach (eqLogic::byType('xiaomihome') as $xiaomihome) {
 		$xiaomihome->setConfiguration('applyDevice',$xiaomihome->getConfiguration('model'));
         $xiaomihome->save();
-        if ($xiaomihome->setConfiguration('type') == 'aquara') {
+        if ($xiaomihome->getConfiguration('type') == 'aquara') {
             $refreshCmd = xiaomihomeCmd::byEqLogicIdAndLogicalId($xiaomihome->getId(),'refresh');
             if (!is_object($refreshCmd)) {
                 log::add('xiaomihome', 'debug', 'Création de la commande refresh aquara');
