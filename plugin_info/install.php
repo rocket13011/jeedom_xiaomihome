@@ -19,11 +19,9 @@
 require_once dirname(__FILE__) . '/../../../core/php/core.inc.php';
 function xiaomihome_update() {
 	foreach (eqLogic::byType('xiaomihome') as $xiaomihome) {
-		$xiaomihome->setConfiguration('applyDevice',$xiaomihome->getConfiguration('model'));
-        $xiaomihome->save();
         if ($xiaomihome->getConfiguration('type') == 'aquara') {
-            $refreshCmd = xiaomihomeCmd::byEqLogicIdAndLogicalId($xiaomihome->getId(),'refresh');
-            if (!is_object($refreshCmd)) {
+            $xiaomihomeCmd = xiaomihomeCmd::byEqLogicIdAndLogicalId($xiaomihome->getId(),'refresh');
+            if (!is_object($xiaomihomeCmd)) {
                 log::add('xiaomihome', 'debug', 'Création de la commande refresh aquara');
                 $xiaomihomeCmd = new xiaomihomeCmd();
                 $xiaomihomeCmd->setName(__('Rafraichir', __FILE__));
@@ -38,6 +36,8 @@ function xiaomihome_update() {
                 $xiaomihomeCmd->save();
             }
         }
+        $xiaomihome->setConfiguration('applyDevice',$xiaomihome->getConfiguration('model'));
+        $xiaomihome->save();
 	}
 }
 ?>
