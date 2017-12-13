@@ -36,9 +36,9 @@ except ImportError:
 	sys.exit(1)
 
 try:
-    import queue
+	import queue
 except ImportError:
-    import Queue as queue
+	import Queue as queue
 
 def push_data_from_aquara(model, sid, cmd,short_id,token, data, type,source):
 	data_to_send = {}
@@ -80,7 +80,7 @@ def read_socket(name):
 						devices.yeehome.execute_action(message)
 					elif message['type'] == 'wifi':
 						devices.xiaowifi.execute_action(message)
-                if message['cmd'] == 'read':
+				if message['cmd'] == 'read':
 					logging.debug('Executing read on : '+str(message['model']))
 					if message['type'] == 'aquara':
 						devices.aquara.execute_action(message)
@@ -101,13 +101,13 @@ def read_socket(name):
 		time.sleep(0.3)
 
 def xiaomiconnector(name) :
-    globals.CONNECTOR = XiaomiConnector(data_callback=cb_aquara)
-    while True:
-        try:
-            globals.CONNECTOR.check_incoming()
-            time.sleep(0.05)
-        except Exception as e:
-            logging.error(str(e))
+	globals.CONNECTOR = XiaomiConnector(data_callback=cb_aquara)
+	while True:
+		try:
+			globals.CONNECTOR.check_incoming()
+			time.sleep(0.05)
+		except Exception as e:
+			logging.error(str(e))
 
 def handler(signum=None, frame=None):
 	logging.debug("Signal %i caught, exiting..." % int(signum))
