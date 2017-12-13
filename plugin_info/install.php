@@ -25,7 +25,7 @@ function xiaomihome_update() {
                 log::add('xiaomihome', 'debug', 'Création de la commande refresh aquara');
                 $xiaomihomeCmd = new xiaomihomeCmd();
                 $xiaomihomeCmd->setName(__('Rafraichir', __FILE__));
-                $xiaomihomeCmd->setEqLogic_id($this->getId());
+                $xiaomihomeCmd->setEqLogic_id($xiaomihome->getId());
                 $xiaomihomeCmd->setEqType('xiaomihome');
                 $xiaomihomeCmd->setLogicalId('refresh');
                 $xiaomihomeCmd->setType('action');
