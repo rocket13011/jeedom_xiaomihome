@@ -48,6 +48,19 @@
         "value": "Statut",
         "isVisible": 1,
         "logicalId": "status-set"
+      },
+      {
+          "name": "Rafraichir",
+          "type": "action",
+          "subtype": "other",
+          "display": {
+              "generic_type": "DONT"
+          },
+          "configuration" : {
+              "switch" : "read"
+          },
+          "isVisible": 0,
+          "logicalId": "refresh"
       }
     ]
   }
