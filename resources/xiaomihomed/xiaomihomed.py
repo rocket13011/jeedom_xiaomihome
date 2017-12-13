@@ -86,6 +86,8 @@ def read_socket(name):
 						devices.aquara.execute_action(message)
 				if message['cmd'] == 'refresh':
 					logging.debug('Refreshing : '+str(message['model']))
+					if message['type'] == 'aquara':
+						devices.aquara.refresh(message)
 					if message['type'] == 'yeelight':
 						devices.yeehome.refresh(message)
 					elif message['type'] == 'wifi':
