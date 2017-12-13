@@ -2,6 +2,10 @@
 
 Important : en cas de mise à jour disponible pour laquelle il n'y a pas d'info dans cette section, c'est qu'elle n'intègre aucune nouveautés majeures. Cela peut être un ajout de doc, une correction de doc, des traductions ou bien de la correction de bugs mineurs
 
+## Version du 14 décembre 2017
+
+Ajout de la commande refresh sur les devices aqara (zigbee) qui permet de demander l'état actuel des capteurs
+
 ## Version du 21 novembre 2017
 
 Ajout de l'ampoule Philips
