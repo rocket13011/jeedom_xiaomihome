@@ -72,7 +72,7 @@ def read_socket(name):
 					logging.error("Invalid apikey from socket : " + str(message))
 					return
 				logging.debug('Received command from jeedom : '+str(message['cmd']))
-				if message['cmd'] == 'send' || message['cmd'] == 'read':
+				if message['cmd'] == 'send':
 					logging.debug('Executing action on : '+str(message['model']))
 					if message['type'] == 'aquara':
 						devices.aquara.execute_action(message)
@@ -80,6 +80,10 @@ def read_socket(name):
 						devices.yeehome.execute_action(message)
 					elif message['type'] == 'wifi':
 						devices.xiaowifi.execute_action(message)
+                if message['cmd'] == 'read':
+					logging.debug('Executing read on : '+str(message['model']))
+					if message['type'] == 'aquara':
+						devices.aquara.execute_action(message)
 				if message['cmd'] == 'refresh':
 					logging.debug('Refreshing : '+str(message['model']))
 					if message['type'] == 'yeelight':
