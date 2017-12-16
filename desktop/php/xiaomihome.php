@@ -331,9 +331,17 @@ if (class_exists('blea')){
                         });
                         foreach ($group as $key => $info) {
                           if ($key == 0) {
+				if ($info['groupe'] == 'Aquara') {
+					$info['groupe'] == 'Aqara';
+				}
                             echo '<optgroup label="{{' . $info['groupe'] . '}}">';
                           }
-                          echo '<option value="' . $info['key'] . '">' . $info['name'] . '</option>';
+				if ($info['groupe'] == 'Aqara') {
+					echo '<option value="' . $info['key'] . '" disabled>' . $info['name'] . '</option>';
+				} else {
+					echo '<option value="' . $info['key'] . '">' . $info['name'] . '</option>';
+				}
+                          
                         }
                         echo '</optgroup>';
                       }
