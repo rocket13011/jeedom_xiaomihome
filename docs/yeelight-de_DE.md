@@ -4,7 +4,7 @@
 
 Un bouton de scan permet de créer automatiquement toutes les lampes répondant au protocole Yeelight disponible sur le réseau (uniquement celles qui n'existent pas déjà dans Jeedom biensûr)
 
-## Configuration des lampes Yeelight
+## Yeelight Lampe Konfiguration
 
 Une présentation complète de la gamme est disponible ici : [Article de présentation](https://lunarok-domotique.com/plugins-jeedom/xiaomi-home-jeedom/yeelight-xiaomi-wifi-lamp/)
 

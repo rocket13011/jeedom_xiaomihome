@@ -8,7 +8,7 @@ Pour les capteurs Aqara, c'est à leur remontée d'information, donc la fréquen
 
 Pour les interrupteurs et boutons Aqara, il peut être nécessaire de les activer pour avoir la création des commandes (un clic par exemple)
 
-## Configuration de la gateway Aqara
+## Konfiguration des Aqara Gateways
 
 Une présentation complète de la gamme est disponible ici : [Article de présentation](https://lunarok-domotique.com/plugins-jeedom/xiaomi-home-jeedom/aqara-lumi-xiaomi-smart-home-security/)
 
