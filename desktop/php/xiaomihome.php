@@ -331,12 +331,12 @@ if (class_exists('blea')){
                         });
                         foreach ($group as $key => $info) {
                           if ($key == 0) {
-				if ($info['groupe'] == 'Aquara') {
-					$info['groupe'] == 'Aqara';
+				if ($info['groupe'] == 'aquara') {
+					$info['groupe'] == 'aqara';
 				}
                             echo '<optgroup label="{{' . $info['groupe'] . '}}">';
                           }
-				if ($info['groupe'] == 'Aqara') {
+				if ($info['groupe'] == 'aqara') {
 					echo '<option value="' . $info['key'] . '" disabled>' . $info['name'] . '</option>';
 				} else {
 					echo '<option value="' . $info['key'] . '">' . $info['name'] . '</option>';
@@ -425,6 +425,7 @@ $( "#modelfield" ).change(function(){
 
 $( "#typefield" ).change(function(){
   if ($('#typefield').value() == 'aquara') {
+	$('#modelfield').selectmenu("disable");
     if ($('#modelfield').value() == 'gateway') {
       $('#passfield').show();
       $('.globalRemark').show();
@@ -437,6 +438,7 @@ $( "#typefield" ).change(function(){
     $('.syncinfo').hide();
   }
   else if ($('#typefield').value() == 'yeelight') {
+	  $('#modelfield').selectmenu("enable");
     $('#passfield').hide();
     $('#idfield').hide();
     $('#ipfield').show();
@@ -444,6 +446,7 @@ $( "#typefield" ).change(function(){
     $('.globalRemark').hide();
   }
   else if ($('#typefield').value() == 'wifi') {
+	  $('#modelfield').selectmenu("enable");
     $('#passfield').show();
     $('.globalRemark').show();
     $('.syncinfo').show();
