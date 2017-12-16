@@ -293,7 +293,7 @@ if (class_exists('blea')){
                   </div>
                 </div>
                 <div class="form-group" id="passfield">
-                  <label class="col-sm-3 control-label">{{Password/Token}}</label>
+                  <label class="col-sm-3 control-label" id="passtoken">{{Password/Token}}</label>
                   <div class="col-sm-6">
                     <input class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="password" placeholder="Voir message en bleu"></span>
                   </div>
@@ -409,6 +409,9 @@ if (class_exists('blea')){
   </div>
 </div>
 
+<?php include_file('desktop', 'xiaomihome', 'js', 'xiaomihome'); ?>
+<?php include_file('core', 'plugin.template', 'js'); ?>
+
 <script>
 
 $( "#modelfield" ).change(function(){
@@ -427,6 +430,7 @@ $( "#typefield" ).change(function(){
   if ($('#typefield').value() == 'aquara') {
 	$('#modelfield').selectmenu("disable");
     if ($('#modelfield').value() == 'gateway') {
+	    $("#passtoken").text("Password");
       $('#passfield').show();
       $('.globalRemark').show();
     } else {
@@ -447,6 +451,7 @@ $( "#typefield" ).change(function(){
   }
   else if ($('#typefield').value() == 'wifi') {
 	  $('#modelfield').selectmenu("enable");
+	  $("#passtoken").text("Token");
     $('#passfield').show();
     $('.globalRemark').show();
     $('.syncinfo').show();
@@ -456,5 +461,3 @@ $( "#typefield" ).change(function(){
 });
 </script>
 
-<?php include_file('desktop', 'xiaomihome', 'js', 'xiaomihome'); ?>
-<?php include_file('core', 'plugin.template', 'js'); ?>
