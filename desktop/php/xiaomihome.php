@@ -428,7 +428,6 @@ $( "#modelfield" ).change(function(){
 
 $( "#typefield" ).change(function(){
   if ($('#typefield').value() == 'aquara') {
-	$('#modelfield').selectmenu("disable");
     if ($('#modelfield').value() == 'gateway') {
 	    $("#passtoken").text("Password");
       $('#passfield').show();
@@ -442,7 +441,6 @@ $( "#typefield" ).change(function(){
     $('.syncinfo').hide();
   }
   else if ($('#typefield').value() == 'yeelight') {
-	  $('#modelfield').selectmenu("enable");
     $('#passfield').hide();
     $('#idfield').hide();
     $('#ipfield').show();
@@ -450,7 +448,6 @@ $( "#typefield" ).change(function(){
     $('.globalRemark').hide();
   }
   else if ($('#typefield').value() == 'wifi') {
-	  $('#modelfield').selectmenu("enable");
 	  $("#passtoken").text("Token");
     $('#passfield').show();
     $('.globalRemark').show();
