@@ -330,10 +330,10 @@ if (class_exists('blea')){
                           return strcmp($a['name'], $b['name']);
                         });
                         foreach ($group as $key => $info) {
-                          if ($key == 0) {
 				if ($info['groupe'] == 'Aquara') {
 					$info['groupe'] = 'Aqara';
 				}
+                          if ($key == 0) {
                             echo '<optgroup label="{{' . $info['groupe'] . '}}">';
                           }
 				if ($info['groupe'] == 'Aqara') {
