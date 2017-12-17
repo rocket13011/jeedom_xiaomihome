@@ -288,7 +288,7 @@ class xiaomihome extends eqLogic {
             foreach ($this->getCmd() as $cmd) {
                 $cmd->remove();
             }
-            $this->applyModuleConfiguration($this->getConfiguration('model'));
+            $this->applyModuleConfiguration($this->getConfiguration('applyDevice'));
         }
     }
 
