@@ -284,7 +284,7 @@ class xiaomihome extends eqLogic {
     }
 
     public function postSave() {
-        if ($this->getConfiguration('applyDevice') != $this->getConfiguration('model')) {
+        if (($this->getConfiguration('applyDevice') != $this->getConfiguration('model')) && '' == $this->getConfiguration('model')) {
             foreach ($this->getCmd() as $cmd) {
                 $cmd->remove();
             }
