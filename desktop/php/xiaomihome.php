@@ -412,7 +412,7 @@ if (class_exists('blea')){
 <script>
 $( "#typefield" ).change(function(){
   if ($('#typefield').value() == 'aquara') {
-    $("#modelfield").prop('disabled', 'disabled');
+    $("#modelfield").prop('readonly', 'readonly');
     $('#idfield').show();
     $('#ipfield').hide();
     $('.syncinfo').hide();
@@ -426,7 +426,7 @@ $( "#typefield" ).change(function(){
     }
   }
   else if ($('#typefield').value() == 'yeelight') {
-    $("#modelfield").removeAttr("disabled");
+    $("#modelfield").removeAttr("readonly");
     $('#passfield').hide();
     $('#idfield').hide();
     $('#ipfield').show();
@@ -434,7 +434,7 @@ $( "#typefield" ).change(function(){
     $('.globalRemark').hide();
   }
   else if ($('#typefield').value() == 'wifi') {
-    $("#modelfield").removeAttr("disabled");
+    $("#modelfield").removeAttr("readonly");
     $("#passtoken").text("Token");
     $('#passfield').show();
     $('.globalRemark').show();
