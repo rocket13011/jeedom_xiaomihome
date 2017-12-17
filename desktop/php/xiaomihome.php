@@ -309,8 +309,7 @@ if (class_exists('blea')){
               <div class="form-group">
                 <label class="col-sm-2 control-label">{{Equipement}}</label>
                 <div class="col-sm-8">
-                  <select class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="model" id="modelfield">
-                    <option value="">Aucun</option>
+                  <select class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="applyDevice" id="newmodelfield">
                     <?php
                     $groups = array();
 
@@ -331,17 +330,12 @@ if (class_exists('blea')){
                       });
                       foreach ($group as $key => $info) {
                         if ($info['groupe'] == 'Aquara') {
-                          $info['groupe'] = 'Aqara';
+                          break;
                         }
                         if ($key == 0) {
                           echo '<optgroup label="{{' . $info['groupe'] . '}}">';
                         }
-                        if ($info['groupe'] == 'Aqara') {
-                          echo '<option value="' . $info['key'] . '" disabled>' . $info['name'] . '</option>';
-                        } else {
-                          echo '<option value="' . $info['key'] . '">' . $info['name'] . '</option>';
-                        }
-
+                        echo '<option value="' . $info['key'] . '">' . $info['name'] . '</option>';
                       }
                       echo '</optgroup>';
                     }
@@ -349,14 +343,14 @@ if (class_exists('blea')){
                   </select>
                 </div>
               </div>
-              <div class="form-group" id="gatewayfield">
-                <label class="col-sm-3 control-label">{{Gateway}}</label>
-                <div class="col-sm-3">
-                  <span class="eqLogicAttr label label-default" data-l1key="configuration" data-l2key="gateway"></span>
-                </div>
+              <div class="form-group">
                 <label class="col-sm-2 control-label">{{Type}}</label>
                 <div class="col-sm-3">
                   <span class="eqLogicAttr label label-default" data-l1key="configuration" data-l2key="type" id="typefield"></span>
+                </div>
+                <label class="col-sm-3 control-label">{{Modèle}}</label>
+                <div class="col-sm-3">
+                  <span class="eqLogicAttr label label-default" data-l1key="configuration" data-l2key="model" id="modelfield"></span>
                 </div>
               </div>
 
@@ -371,12 +365,17 @@ if (class_exists('blea')){
                 </div>
               </div>
 
-              <div class="form-group" id="modefield">
+              <div class="form-group">
+                <label class="col-sm-3 control-label">{{Gateway}}</label>
+                <div class="col-sm-3">
+                  <span class="eqLogicAttr label label-default" data-l1key="configuration" data-l2key="gateway"></span>
+                </div>
                 <label class="col-sm-3 control-label">{{Dernière Activité}}</label>
                 <div class="col-sm-3">
                   <span class="eqLogicAttr label label-default" data-l1key="status" data-l2key="lastCommunication"></span>
                 </div>
               </div>
+
               <center>
                 <img src="core/img/no_image.gif" data-original=".jpg" id="img_device" class="img-responsive" style="max-height : 250px;"  onerror="this.src='plugins/xiaomihome/doc/images/xiaomihome_icon.png'"/>
               </center>
@@ -419,6 +418,7 @@ $( "#typefield" ).change(function(){
     if ($('#modelfield').value() == 'gateway') {
       $("#passtoken").text("Password");
       $('#passfield').show();
+      $('.globalRemark').text("Le mot de passe a renseigné se trouve dans les options développeurs de la gateway dans Mi Home");
       $('.globalRemark').show();
     } else {
       $('#passfield').hide();
@@ -437,6 +437,7 @@ $( "#typefield" ).change(function(){
     $('#modelfield option:not(:selected)').prop('disabled', true);
     $("#passtoken").text("Token");
     $('#passfield').show();
+    $('.globalRemark').text("Le token peut être trouvé via le bouton récupérer les infos, si ca ne retourne pas de valeur correcte, il faut utilliser la documentation et une des méthodes fournies");
     $('.globalRemark').show();
     $('.syncinfo').show();
     $('#idfield').hide();
