@@ -54,7 +54,7 @@ Ouvrir le fichier sqlite avec un viewer sqlite, jexemple DB Browser http://sqlit
 
 Cliquer sur "Ouvrir une base de données" puis " Parcourir les données" et enfin choisir la table ZDEVICE. Tout à droite il doit y avoir une colonne ZTOKEN avec tous les tokens de vos device Xiaomi
 
-## Configuration des équipements Wifi
+## Konfiguration von Wifi-Geräten
 
 Cette section traite des équipements Wifi additionnels, pas Yeelight ni la gateway Aqara
 
