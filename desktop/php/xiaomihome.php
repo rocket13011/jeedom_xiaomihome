@@ -344,7 +344,7 @@ if (class_exists('blea')){
                 </div>
               </div>
               <div class="form-group">
-                <label class="col-sm-2 control-label">{{Type}}</label>
+                <label class="col-sm-3 control-label">{{Type}}</label>
                 <div class="col-sm-3">
                   <span class="eqLogicAttr label label-default" data-l1key="configuration" data-l2key="type" id="typefield"></span>
                 </div>
@@ -359,7 +359,7 @@ if (class_exists('blea')){
                 <div class="col-sm-3">
                   <span class="eqLogicAttr label label-default" data-l1key="configuration" data-l2key="sid"></span>
                 </div>
-                <label class="col-sm-2 control-label">{{Identifiant court}}</label>
+                <label class="col-sm-3 control-label">{{Identifiant court}}</label>
                 <div class="col-sm-3">
                   <span class="eqLogicAttr label label-default" data-l1key="configuration" data-l2key="short_id"></span>
                 </div>
@@ -407,52 +407,6 @@ if (class_exists('blea')){
   </div>
 </div>
 </div>
-
-<script>
-$( "#typefield" ).change(function(){
-  if ($('#typefield').value() == 'aquara') {
-    $('#modelfield option:not(:selected)').prop('disabled', true);
-    $('#idfield').show();
-    $('#ipfield').hide();
-    $('.syncinfo').hide();
-    if ($('#modelfield').value() == 'gateway') {
-      $("#passtoken").text("Password");
-      $('#passfield').show();
-      $('.globalRemark').text("Le mot de passe a renseigné se trouve dans les options développeurs de la gateway dans Mi Home");
-      $('.globalRemark').show();
-    } else {
-      $('#passfield').hide();
-      $('.globalRemark').hide();
-    }
-  }
-  else if ($('#typefield').value() == 'yeelight') {
-    $('#modelfield option:not(:selected)').prop('disabled', true);
-    $('#passfield').hide();
-    $('#idfield').hide();
-    $('#ipfield').show();
-    $('.syncinfo').hide();
-    $('.globalRemark').hide();
-  }
-  else if ($('#typefield').value() == 'wifi') {
-    $('#modelfield option:not(:selected)').prop('disabled', true);
-    $("#passtoken").text("Token");
-    $('#passfield').show();
-    $('.globalRemark').text("Le token peut être trouvé via le bouton récupérer les infos, si ca ne retourne pas de valeur correcte, il faut utilliser la documentation et une des méthodes fournies");
-    $('.globalRemark').show();
-    $('.syncinfo').show();
-    $('#idfield').hide();
-    $('#ipfield').show();
-  }
-});
-$( "#modelfield" ).change(function(){
-  if ($('#modelfield').value() == '') {
-    $('#newmodelfield').show();
-  }
-  else {
-    $('#newmodelfield').hide();
-  }
-});
-</script>
 
 <?php include_file('desktop', 'xiaomihome', 'js', 'xiaomihome'); ?>
 <?php include_file('core', 'plugin.template', 'js'); ?>

@@ -15,6 +15,50 @@
 * along with Jeedom. If not, see <http://www.gnu.org/licenses/>.
 
 */
+$( "#typefield" ).change(function(){
+  if ($('#typefield').value() == 'aquara') {
+    $('#modelfield option:not(:selected)').prop('disabled', true);
+    $('#idfield').show();
+    $('#ipfield').hide();
+    $('.syncinfo').hide();
+    if ($('#modelfield').value() == 'gateway') {
+      $("#passtoken").text("Password");
+      $('#passfield').show();
+      $('.globalRemark').text("Le mot de passe a renseigné se trouve dans les options développeurs de la gateway dans Mi Home");
+      $('.globalRemark').show();
+    } else {
+      $('#passfield').hide();
+      $('.globalRemark').hide();
+    }
+  }
+  else if ($('#typefield').value() == 'yeelight') {
+    $('#modelfield option:not(:selected)').prop('disabled', true);
+    $('#passfield').hide();
+    $('#idfield').hide();
+    $('#ipfield').show();
+    $('.syncinfo').hide();
+    $('.globalRemark').hide();
+  }
+  else if ($('#typefield').value() == 'wifi') {
+    $('#modelfield option:not(:selected)').prop('disabled', true);
+    $("#passtoken").text("Token");
+    $('#passfield').show();
+    $('.globalRemark').text("Le token peut être trouvé via le bouton récupérer les infos, si ca ne retourne pas de valeur correcte, il faut utilliser la documentation et une des méthodes fournies");
+    $('.globalRemark').show();
+    $('.syncinfo').show();
+    $('#idfield').hide();
+    $('#ipfield').show();
+  }
+});
+
+$( "#modelfield" ).change(function(){
+  if ($('#modelfield').value() == '') {
+    $('#newmodelfield').show();
+  }
+  else {
+    $('#newmodelfield').hide();
+  }
+});
 
 $('#bt_healthxiaomihome').on('click', function () {
   $('#md_modal').dialog({title: "{{Santé xiaomihome}}"});
@@ -25,7 +69,7 @@ $('.discover').on('click', function () {
 	$('#div_alert').showAlert({message: '{{Détection en cours}}', level: 'warning'});
 	$.ajax({
                 type: "POST", // méthode de transmission des données au fichier php
-                url: "plugins/xiaomihome/core/ajax/xiaomihome.ajax.php", 
+                url: "plugins/xiaomihome/core/ajax/xiaomihome.ajax.php",
                 data: {
                     action: "discover",
                     mode: $(this).attr('data-action'),
@@ -35,7 +79,7 @@ $('.discover').on('click', function () {
                 error: function (request, status, error) {
                     handleAjaxError(request, status, error);
                 },
-                success: function (data) { 
+                success: function (data) {
                     if (data.state != 'ok') {
                         $('#div_alert').showAlert({message: data.result, level: 'danger'});
                         return;
@@ -48,7 +92,7 @@ $('.discover').on('click', function () {
 
  $('.eqLogicAttr[data-l1key=configuration][data-l2key=model]').on('change', function () {
   if($('.li_eqLogic.active').attr('data-eqlogic_id') != ''){
-     icon = $('.eqLogicAttr[data-l1key=configuration][data-l2key=model] option:selected').val();
+     icon = $('.eqLogicAttr[data-l1key=configuration][data-l2key=model]').value();
          if(icon != '' && icon != null){
              $('#img_device').attr("src", 'plugins/xiaomihome/core/config/devices/'+icon+'/'+icon+'.png');
          } else {
@@ -69,12 +113,11 @@ $('body').on('xiaomihome::includeDevice', function (_event,_options) {
 });
 
 $('#bt_autoDetectModule').on('click', function () {
-
     bootbox.confirm('{{Etes-vous sûr de vouloir récréer toutes les commandes ? Cela va supprimer les commandes existantes}}', function (result) {
         if (result) {
             $.ajax({
                 type: "POST", // méthode de transmission des données au fichier php
-                url: "plugins/xiaomihome/core/ajax/xiaomihome.ajax.php", 
+                url: "plugins/xiaomihome/core/ajax/xiaomihome.ajax.php",
                 data: {
                     action: "autoDetectModule",
                     id: $('.eqLogicAttr[data-l1key=id]').value(),
@@ -84,7 +127,7 @@ $('#bt_autoDetectModule').on('click', function () {
                 error: function (request, status, error) {
                     handleAjaxError(request, status, error);
                 },
-                success: function (data) { 
+                success: function (data) {
                     if (data.state != 'ok') {
                         $('#div_alert').showAlert({message: data.result, level: 'danger'});
                         return;
@@ -103,7 +146,7 @@ $('#btn_sync').on('click', function () {
             $('#div_alert').showAlert({message: '{{Recherche en cours}}', level: 'warning'});
             $.ajax({
                 type: "POST", // méthode de transmission des données au fichier php
-                url: "plugins/xiaomihome/core/ajax/xiaomihome.ajax.php", 
+                url: "plugins/xiaomihome/core/ajax/xiaomihome.ajax.php",
                 data: {
                     action: "sync",
                     id: $('.eqLogicAttr[data-l1key=id]').value(),
@@ -113,7 +156,7 @@ $('#btn_sync').on('click', function () {
                 error: function (request, status, error) {
                     handleAjaxError(request, status, error);
                 },
-                success: function (data) { 
+                success: function (data) {
                     if (data.state != 'ok') {
                         $('#div_alert').showAlert({message: data.result, level: 'danger'});
                         return;
