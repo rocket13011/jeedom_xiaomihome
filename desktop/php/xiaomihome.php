@@ -306,10 +306,10 @@ if (class_exists('blea')){
           <a class="btn btn-primary btn-sm eqLogicAction pull-right syncinfo" id="btn_sync"><i class="fa fa-spinner" title="{{Récupérer les infos}}"></i> {{Récupérer les infos}}</a><br/><br/>
           <form class="form-horizontal">
             <fieldset>
-              <div class="form-group">
+              <div class="form-group" id="newmodelfield">
                 <label class="col-sm-2 control-label">{{Equipement}}</label>
                 <div class="col-sm-8">
-                  <select class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="applyDevice" id="newmodelfield">
+                  <select class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="applyDevice">
                     <?php
                     $groups = array();
 
@@ -442,6 +442,14 @@ $( "#typefield" ).change(function(){
     $('.syncinfo').show();
     $('#idfield').hide();
     $('#ipfield').show();
+  }
+});
+$( "#modelfield" ).change(function(){
+  if ($('#modelfield').value() == '') {
+    $('#newmodelfield').show();
+  }
+  else {
+    $('#newmodelfield').hide();
   }
 });
 </script>
