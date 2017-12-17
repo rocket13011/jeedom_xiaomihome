@@ -8,7 +8,7 @@ sendVarToJS('eqType', 'xiaomihome');
 $eqLogics = eqLogic::byType('xiaomihome');
 $eqLogicsBlea = array();
 if (class_exists('blea')){
-	$eqLogicsBlea = eqLogic::byType('blea');
+  $eqLogicsBlea = eqLogic::byType('blea');
 }
 ?>
 
@@ -20,26 +20,26 @@ if (class_exists('blea')){
 
         <li class="filter" style="margin-bottom: 5px;"><input class="filter form-control input-sm" placeholder="{{Rechercher}}" style="width: 100%"/></li>
         <?php
-		echo '<legend><i class="fa fa-home"></i>  Aqara</legend>';
+        echo '<legend><i class="fa fa-home"></i>  Aqara</legend>';
         foreach ($eqLogics as $eqLogic) {
           if ($eqLogic->getConfiguration('type') == 'aquara') {
             echo '<li class="cursor li_eqLogic" data-eqLogic_id="' . $eqLogic->getId() . '"><a>' . $eqLogic->getHumanName(true) . '</a></li>';
           }
         }
-		echo '<legend><i class="icon jeedom2-bright4"></i> Yeelight</legend>';
+        echo '<legend><i class="icon jeedom2-bright4"></i> Yeelight</legend>';
         foreach ($eqLogics as $eqLogic) {
           if ($eqLogic->getConfiguration('type') == 'yeelight') {
             echo '<li class="cursor li_eqLogic" data-eqLogic_id="' . $eqLogic->getId() . '"><a>' . $eqLogic->getHumanName(true) . '</a></li>';
           }
         }
-		echo '<legend><i class="fa fa-wifi"></i>  Wifi</legend>';
+        echo '<legend><i class="fa fa-wifi"></i>  Wifi</legend>';
         foreach ($eqLogics as $eqLogic) {
           if ($eqLogic->getConfiguration('type') != 'aquara' && $eqLogic->getConfiguration('type') != 'yeelight') {
             echo '<li class="cursor li_eqLogic" data-eqLogic_id="' . $eqLogic->getId() . '"><a>' . $eqLogic->getHumanName(true) . '</a></li>';
           }
         }
-		echo '<legend><i class="fa fa-bluetooth"></i>  Bluetooth</legend>';
-		foreach ($eqLogicsBlea as $eqLogic) {
+        echo '<legend><i class="fa fa-bluetooth"></i>  Bluetooth</legend>';
+        foreach ($eqLogicsBlea as $eqLogic) {
           if ($eqLogic->getConfiguration('xiaomi',0) == 1){
             echo '<li title="Juste un listing : à configurer via Blea"><a>' . $eqLogic->getHumanName(true) . '</a></li>';
           }
@@ -89,46 +89,46 @@ if (class_exists('blea')){
         $opacity = ($eqLogicGateway->getIsEnable()) ? '' : jeedom::getConfiguration('eqLogic:style:noactive');
         echo '<div class="eqLogicDisplayCard cursor" data-eqLogic_id="' . $eqLogicGateway->getId() . '" style="background-color : #ffffff ; height : 200px;margin-bottom : 10px;padding : 5px;border-radius: 2px;width : 160px;margin-left : 10px;' . $opacity . '" >';
         $online = $eqLogicGateway->getCmd('info','online');
-		if (is_object($online)){
-			$onlinevalue= $online->execCmd();
-		} else {
-			$onlinevalue = '';
-		}
-		if ($onlinevalue !== '' && $onlinevalue == 0){
-			echo '<i class="fa fa-times" style="float:right" title="Offline"></i>';
-		}
-		echo "<center>";
-        if (file_exists(dirname(__FILE__) . '/../../core/config/devices/' . $eqLogicGateway->getConfiguration('model') . '/' . $eqLogicGateway->getConfiguration('model') . '.png')) {
-            echo '<img src="plugins/xiaomihome/core/config/devices/' . $eqLogicGateway->getConfiguration('model') . '/' . $eqLogicGateway->getConfiguration('model') . '.png' . '" height="105" width="95" />';
+        if (is_object($online)){
+          $onlinevalue= $online->execCmd();
         } else {
-            echo '<img src="' . $plugin->getPathImgIcon() . '" height="105" width="95" />';
+          $onlinevalue = '';
+        }
+        if ($onlinevalue !== '' && $onlinevalue == 0){
+          echo '<i class="fa fa-times" style="float:right" title="Offline"></i>';
+        }
+        echo "<center>";
+        if (file_exists(dirname(__FILE__) . '/../../core/config/devices/' . $eqLogicGateway->getConfiguration('model') . '/' . $eqLogicGateway->getConfiguration('model') . '.png')) {
+          echo '<img src="plugins/xiaomihome/core/config/devices/' . $eqLogicGateway->getConfiguration('model') . '/' . $eqLogicGateway->getConfiguration('model') . '.png' . '" height="105" width="95" />';
+        } else {
+          echo '<img src="' . $plugin->getPathImgIcon() . '" height="105" width="95" />';
         }
         echo "</center>";
         echo '<span style="font-size : 1.1em;position:relative; top : 15px;word-break: break-all;white-space: pre-wrap;word-wrap: break-word;"><center>' . $eqLogicGateway->getHumanName(true, true) . '</center></span>';
         echo '</div>';
         foreach ($eqLogics as $eqLogic) {
-            if ($eqLogic->getConfiguration('type') == 'aquara' && $eqLogic->getConfiguration('model') != 'gateway' && $eqLogic->getConfiguration('gateway') == $eqLogicGateway->getConfiguration('gateway')) {
-                $opacity = ($eqLogic->getIsEnable()) ? '' : jeedom::getConfiguration('eqLogic:style:noactive');
-                echo '<div class="eqLogicDisplayCard cursor" data-eqLogic_id="' . $eqLogic->getId() . '" style="background-color : #ffffff ; height : 200px;margin-bottom : 10px;padding : 5px;border-radius: 2px;width : 160px;margin-left : 10px;' . $opacity . '" >';
-                if ($onlinevalue !== '' && $onlinevalue == 0){
-					echo '<i class="fa fa-times" style="float:right" title="Offline"></i>';
-				}
-				echo "<center>";
-                if (file_exists(dirname(__FILE__) . '/../../core/config/devices/' . $eqLogic->getConfiguration('model') . '/' . $eqLogic->getConfiguration('model') . '.png')) {
-                    echo '<img src="plugins/xiaomihome/core/config/devices/' . $eqLogic->getConfiguration('model') . '/' . $eqLogic->getConfiguration('model') . '.png' . '" height="105" width="95" />';
-                } else {
-                    echo '<img src="' . $plugin->getPathImgIcon() . '" height="105" width="95" />';
-                }
-                echo "</center>";
-                echo '<span style="font-size : 1.1em;position:relative; top : 15px;word-break: break-all;white-space: pre-wrap;word-wrap: break-word;"><center>' . $eqLogic->getHumanName(true, true) . '</center></span>';
-                echo '</div>';
+          if ($eqLogic->getConfiguration('type') == 'aquara' && $eqLogic->getConfiguration('model') != 'gateway' && $eqLogic->getConfiguration('gateway') == $eqLogicGateway->getConfiguration('gateway')) {
+            $opacity = ($eqLogic->getIsEnable()) ? '' : jeedom::getConfiguration('eqLogic:style:noactive');
+            echo '<div class="eqLogicDisplayCard cursor" data-eqLogic_id="' . $eqLogic->getId() . '" style="background-color : #ffffff ; height : 200px;margin-bottom : 10px;padding : 5px;border-radius: 2px;width : 160px;margin-left : 10px;' . $opacity . '" >';
+            if ($onlinevalue !== '' && $onlinevalue == 0){
+              echo '<i class="fa fa-times" style="float:right" title="Offline"></i>';
             }
+            echo "<center>";
+            if (file_exists(dirname(__FILE__) . '/../../core/config/devices/' . $eqLogic->getConfiguration('model') . '/' . $eqLogic->getConfiguration('model') . '.png')) {
+              echo '<img src="plugins/xiaomihome/core/config/devices/' . $eqLogic->getConfiguration('model') . '/' . $eqLogic->getConfiguration('model') . '.png' . '" height="105" width="95" />';
+            } else {
+              echo '<img src="' . $plugin->getPathImgIcon() . '" height="105" width="95" />';
+            }
+            echo "</center>";
+            echo '<span style="font-size : 1.1em;position:relative; top : 15px;word-break: break-all;white-space: pre-wrap;word-wrap: break-word;"><center>' . $eqLogic->getHumanName(true, true) . '</center></span>';
+            echo '</div>';
+          }
         }
         echo '</div>';
       }
     }
     if ($status == 0) {
-        echo "<br/><br/><br/><center><span style='color:#767676;font-size:1.2em;font-weight: bold;'>{{Aucun aquara détecté, démarrer un node pour ajout}}</span></center>";
+      echo "<br/><br/><br/><center><span style='color:#767676;font-size:1.2em;font-weight: bold;'>{{Aucun aquara détecté, démarrer un node pour ajout}}</span></center>";
     }
     ?>
 
@@ -142,15 +142,15 @@ if (class_exists('blea')){
         $opacity = ($eqLogic->getIsEnable()) ? '' : jeedom::getConfiguration('eqLogic:style:noactive');
         echo '<div class="eqLogicDisplayCard cursor" data-eqLogic_id="' . $eqLogic->getId() . '" style="background-color : #ffffff ; height : 200px;margin-bottom : 10px;padding : 5px;border-radius: 2px;width : 160px;margin-left : 10px;' . $opacity . '" >';
         $online = $eqLogic->getCmd('info','online');
-		if (is_object($online)){
-			$onlinevalue= $online->execCmd();
-		} else {
-			$onlinevalue = '';
-		}
-		if ($onlinevalue !== '' && $onlinevalue == 0){
-			echo '<i class="fa fa-times" style="float:right" title="Offline"></i>';
-		}
-		echo "<center>";
+        if (is_object($online)){
+          $onlinevalue= $online->execCmd();
+        } else {
+          $onlinevalue = '';
+        }
+        if ($onlinevalue !== '' && $onlinevalue == 0){
+          echo '<i class="fa fa-times" style="float:right" title="Offline"></i>';
+        }
+        echo "<center>";
         if (file_exists(dirname(__FILE__) . '/../../core/config/devices/' . $eqLogic->getConfiguration('model') . '/' . $eqLogic->getConfiguration('model') . '.png')) {
           echo '<img src="plugins/xiaomihome/core/config/devices/' . $eqLogic->getConfiguration('model') . '/' . $eqLogic->getConfiguration('model') . '.png' . '" height="105" width="95" />';
         } else {
@@ -177,15 +177,15 @@ if (class_exists('blea')){
         $opacity = ($eqLogic->getIsEnable()) ? '' : jeedom::getConfiguration('eqLogic:style:noactive');
         echo '<div class="eqLogicDisplayCard cursor" data-eqLogic_id="' . $eqLogic->getId() . '" style="background-color : #ffffff ; height : 200px;margin-bottom : 10px;padding : 5px;border-radius: 2px;width : 160px;margin-left : 10px;' . $opacity . '" >';
         $online = $eqLogic->getCmd('info','online');
-		if (is_object($online)){
-			$onlinevalue= $online->execCmd();
-		} else {
-			$onlinevalue = '';
-		}
-		if ($onlinevalue !== '' && $onlinevalue == 0){
-			echo '<i class="fa fa-times" style="float:right" title="Offline"></i>';
-		}
-		echo "<center>";
+        if (is_object($online)){
+          $onlinevalue= $online->execCmd();
+        } else {
+          $onlinevalue = '';
+        }
+        if ($onlinevalue !== '' && $onlinevalue == 0){
+          echo '<i class="fa fa-times" style="float:right" title="Offline"></i>';
+        }
+        echo "<center>";
         echo '<img src="plugins/xiaomihome/core/config/devices/' . $eqLogic->getConfiguration('model') . '/' . $eqLogic->getConfiguration('model') . '.png' . '" height="105" width="95" />';                echo "</center>";
         echo '<span style="font-size : 1.1em;position:relative; top : 15px;word-break: break-all;white-space: pre-wrap;word-wrap: break-word;"><center>' . $eqLogic->getHumanName(true, true) . '</center></span>';
         echo '</div>';
@@ -197,28 +197,28 @@ if (class_exists('blea')){
       echo "<br/><br/><br/><center><span style='color:#767676;font-size:1.2em;font-weight: bold;'>{{Aucun Xiaomi Wifi, ajoutez en un}}</span></center>";
     }
     ?>
-	
-	<legend><i class="fa fa-bluetooth"></i>  {{Mes Xiaomi Bluetooth}}</legend>
+
+    <legend><i class="fa fa-bluetooth"></i>  {{Mes Xiaomi Bluetooth}}</legend>
     <?php
     $status = 0;
     foreach ($eqLogicsBlea as $eqLogic) {
       if ($eqLogic->getConfiguration('xiaomi',0) == 1){
-		if ($status == 0) {echo '<div class="eqLogicThumbnailContainer">';}
+        if ($status == 0) {echo '<div class="eqLogicThumbnailContainer">';}
         $status = 1;
         $opacity = ($eqLogic->getIsEnable()) ? '' : jeedom::getConfiguration('eqLogic:style:noactive');
-		echo '<div class="eqLogicDisplayCard" title="Juste un listing : à configurer via Blea" style="background-color : #ffffff; height : 200px;margin-bottom : 10px;padding : 5px;border-radius: 2px;width : 160px;margin-left : 10px;' . $opacity . '" >';
-		echo "<center>";
-		$alternateImg = $eqLogic->getConfiguration('iconModel');
-		if (file_exists(dirname(__FILE__) . '/../../../blea/core/config/devices/' . $alternateImg . '.jpg')) {
-			echo '<img class="lazy" src="plugins/blea/core/config/devices/' . $alternateImg . '.jpg" height="105" width="95" />';
-		} elseif (file_exists(dirname(__FILE__) . '/../../../blea/core/config/devices/' . $eqLogic->getConfiguration('device') . '.jpg')) {
-			echo '<img class="lazy" src="plugins/blea/core/config/devices/' . $eqLogic->getConfiguration('device') . '.jpg" height="105" width="95" />';
-		} else {
-			echo '<img src="plugins/blea/core/plugin_info/blea.png" height="105" width="95" />';
-		}
-		echo "</center>";
-		echo '<span style="font-size : 1.1em;position:relative; top : 15px;word-break: break-all;white-space: pre-wrap;word-wrap: break-word;"><center>' . $eqLogic->getHumanName(true, true) . '</center></span>';
-		echo '</div>';
+        echo '<div class="eqLogicDisplayCard" title="Juste un listing : à configurer via Blea" style="background-color : #ffffff; height : 200px;margin-bottom : 10px;padding : 5px;border-radius: 2px;width : 160px;margin-left : 10px;' . $opacity . '" >';
+        echo "<center>";
+        $alternateImg = $eqLogic->getConfiguration('iconModel');
+        if (file_exists(dirname(__FILE__) . '/../../../blea/core/config/devices/' . $alternateImg . '.jpg')) {
+          echo '<img class="lazy" src="plugins/blea/core/config/devices/' . $alternateImg . '.jpg" height="105" width="95" />';
+        } elseif (file_exists(dirname(__FILE__) . '/../../../blea/core/config/devices/' . $eqLogic->getConfiguration('device') . '.jpg')) {
+          echo '<img class="lazy" src="plugins/blea/core/config/devices/' . $eqLogic->getConfiguration('device') . '.jpg" height="105" width="95" />';
+        } else {
+          echo '<img src="plugins/blea/core/plugin_info/blea.png" height="105" width="95" />';
+        }
+        echo "</center>";
+        echo '<span style="font-size : 1.1em;position:relative; top : 15px;word-break: break-all;white-space: pre-wrap;word-wrap: break-word;"><center>' . $eqLogic->getHumanName(true, true) . '</center></span>';
+        echo '</div>';
       }
     }
     if ($status == 1) {
@@ -241,208 +241,192 @@ if (class_exists('blea')){
     </ul>
     <div class="tab-content" style="height:calc(100% - 50px);overflow:auto;overflow-x: hidden;">
       <div role="tabpanel" class="tab-pane active" id="eqlogictab">
-        </br>
-        <div class="row">
-          <div class="col-sm-6">
-            <form class="form-horizontal">
-              <fieldset>
-                <div class="form-group">
-                  <label class="col-sm-3 control-label">{{Nom de l'équipement}}</label>
-                  <div class="col-sm-3">
-                    <input type="text" class="eqLogicAttr form-control" data-l1key="id" style="display : none;" />
-                    <input type="text" class="eqLogicAttr form-control" data-l1key="name" placeholder="{{Nom de l'équipement xiaomihome}}"/>
-                  </div>
+      </br>
+      <div class="row">
+        <div class="col-sm-6">
+          <form class="form-horizontal">
+            <fieldset>
+              <div class="form-group">
+                <label class="col-sm-3 control-label">{{Nom de l'équipement}}</label>
+                <div class="col-sm-3">
+                  <input type="text" class="eqLogicAttr form-control" data-l1key="id" style="display : none;" />
+                  <input type="text" class="eqLogicAttr form-control" data-l1key="name" placeholder="{{Nom de l'équipement xiaomihome}}"/>
                 </div>
-                <div class="form-group">
-                  <label class="col-sm-3 control-label" >{{Objet parent}}</label>
-                  <div class="col-sm-3">
-                    <select class="form-control eqLogicAttr" data-l1key="object_id">
-                      <option value="">{{Aucun}}</option>
-                      <?php
-                      foreach (object::all() as $object) {
-                        echo '<option value="' . $object->getId() . '">' . $object->getName() . '</option>';
-                      }
-                      ?>
-                    </select>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="col-sm-3 control-label">{{Catégorie}}</label>
-                  <div class="col-sm-8">
+              </div>
+              <div class="form-group">
+                <label class="col-sm-3 control-label" >{{Objet parent}}</label>
+                <div class="col-sm-3">
+                  <select class="form-control eqLogicAttr" data-l1key="object_id">
+                    <option value="">{{Aucun}}</option>
                     <?php
-                    foreach (jeedom::getConfiguration('eqLogic:category') as $key => $value) {
-                      echo '<label class="checkbox-inline">';
-                      echo '<input type="checkbox" class="eqLogicAttr" data-l1key="category" data-l2key="' . $key . '" />' . $value['name'];
-                      echo '</label>';
+                    foreach (object::all() as $object) {
+                      echo '<option value="' . $object->getId() . '">' . $object->getName() . '</option>';
                     }
                     ?>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-3 control-label">{{Catégorie}}</label>
+                <div class="col-sm-8">
+                  <?php
+                  foreach (jeedom::getConfiguration('eqLogic:category') as $key => $value) {
+                    echo '<label class="checkbox-inline">';
+                    echo '<input type="checkbox" class="eqLogicAttr" data-l1key="category" data-l2key="' . $key . '" />' . $value['name'];
+                    echo '</label>';
+                  }
+                  ?>
 
-                  </div>
                 </div>
-                <div class="form-group">
-                  <label class="col-sm-3 control-label" ></label>
-                  <div class="col-sm-8">
-                    <label class="checkbox-inline"><input type="checkbox" class="eqLogicAttr" data-l1key="isEnable" checked/>{{Activer}}</label>
-                    <label class="checkbox-inline"><input type="checkbox" class="eqLogicAttr" data-l1key="isVisible" checked/>{{Visible}}</label>
-                  </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-3 control-label" ></label>
+                <div class="col-sm-8">
+                  <label class="checkbox-inline"><input type="checkbox" class="eqLogicAttr" data-l1key="isEnable" checked/>{{Activer}}</label>
+                  <label class="checkbox-inline"><input type="checkbox" class="eqLogicAttr" data-l1key="isVisible" checked/>{{Visible}}</label>
                 </div>
-                <div class="form-group" id="ipfield">
-                  <label class="col-sm-3 control-label">{{Adresse Ip}}</label>
-                  <div class="col-sm-6">
-                    <input class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="ipwifi" placeholder="Ip du device wifi"></span>
-                  </div>
+              </div>
+              <div class="form-group" id="ipfield">
+                <label class="col-sm-3 control-label">{{Adresse Ip}}</label>
+                <div class="col-sm-6">
+                  <input class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="ipwifi" placeholder="Ip du device wifi"></span>
                 </div>
-                <div class="form-group" id="passfield">
-                  <label class="col-sm-3 control-label" id="passtoken">{{Password/Token}}</label>
-                  <div class="col-sm-6">
-                    <input class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="password" placeholder="Voir message en bleu"></span>
-                  </div>
+              </div>
+              <div class="form-group" id="passfield">
+                <label class="col-sm-3 control-label" id="passtoken">{{Password/Token}}</label>
+                <div class="col-sm-6">
+                  <input class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="password" placeholder="Voir message en bleu"></span>
                 </div>
-              </fieldset>
-            </form>
-          </div>
-          <div class="col-sm-6">
-            <a class="btn btn-danger btn-sm pull-right" id="bt_autoDetectModule"><i class="fa fa-search" title="{{Recréer les commandes}}"></i>  {{Recréer les commandes}}</a>
-            <a class="btn btn-primary btn-sm eqLogicAction pull-right syncinfo" id="btn_sync"><i class="fa fa-spinner" title="{{Récupérer les infos}}"></i> {{Récupérer les infos}}</a><br/><br/>
-            <form class="form-horizontal">
-              <fieldset>
-                <div class="form-group">
-                  <label class="col-sm-2 control-label">{{Equipement}}</label>
-                  <div class="col-sm-8">
-                    <select class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="model" id="modelfield">
-                      <option value="">Aucun</option>
-                      <?php
-                      $groups = array();
+              </div>
+            </fieldset>
+          </form>
+        </div>
+        <div class="col-sm-6">
+          <a class="btn btn-danger btn-sm pull-right" id="bt_autoDetectModule"><i class="fa fa-search" title="{{Recréer les commandes}}"></i>  {{Recréer les commandes}}</a>
+          <a class="btn btn-primary btn-sm eqLogicAction pull-right syncinfo" id="btn_sync"><i class="fa fa-spinner" title="{{Récupérer les infos}}"></i> {{Récupérer les infos}}</a><br/><br/>
+          <form class="form-horizontal">
+            <fieldset>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">{{Equipement}}</label>
+                <div class="col-sm-8">
+                  <select class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="model" id="modelfield">
+                    <option value="">Aucun</option>
+                    <?php
+                    $groups = array();
 
-                      foreach (xiaomihome::devicesParameters() as $key => $info) {
-                        if (isset($info['groupe'])) {
-                          $info['key'] = $key;
-                          if (!isset($groups[$info['groupe']])) {
-                            $groups[$info['groupe']][0] = $info;
-                          } else {
-                            array_push($groups[$info['groupe']], $info);
-                          }
+                    foreach (xiaomihome::devicesParameters() as $key => $info) {
+                      if (isset($info['groupe'])) {
+                        $info['key'] = $key;
+                        if (!isset($groups[$info['groupe']])) {
+                          $groups[$info['groupe']][0] = $info;
+                        } else {
+                          array_push($groups[$info['groupe']], $info);
                         }
                       }
-                      ksort($groups);
-                      foreach ($groups as $group) {
-                        usort($group, function ($a, $b) {
-                          return strcmp($a['name'], $b['name']);
-                        });
-                        foreach ($group as $key => $info) {
-				if ($info['groupe'] == 'Aquara') {
-					$info['groupe'] = 'Aqara';
-				}
-                          if ($key == 0) {
-                            echo '<optgroup label="{{' . $info['groupe'] . '}}">';
-                          }
-				if ($info['groupe'] == 'Aqara') {
-					echo '<option value="' . $info['key'] . '" disabled>' . $info['name'] . '</option>';
-				} else {
-					echo '<option value="' . $info['key'] . '">' . $info['name'] . '</option>';
-				}
-                          
+                    }
+                    ksort($groups);
+                    foreach ($groups as $group) {
+                      usort($group, function ($a, $b) {
+                        return strcmp($a['name'], $b['name']);
+                      });
+                      foreach ($group as $key => $info) {
+                        if ($info['groupe'] == 'Aquara') {
+                          $info['groupe'] = 'Aqara';
                         }
-                        echo '</optgroup>';
+                        if ($key == 0) {
+                          echo '<optgroup label="{{' . $info['groupe'] . '}}">';
+                        }
+                        if ($info['groupe'] == 'Aqara') {
+                          echo '<option value="' . $info['key'] . '" disabled>' . $info['name'] . '</option>';
+                        } else {
+                          echo '<option value="' . $info['key'] . '">' . $info['name'] . '</option>';
+                        }
+
                       }
-                      ?>
-                    </select>
-                  </div>
+                      echo '</optgroup>';
+                    }
+                    ?>
+                  </select>
                 </div>
-                <div class="form-group" id="gatewayfield">
-                  <label class="col-sm-3 control-label">{{Gateway}}</label>
-                  <div class="col-sm-3">
-                    <span class="eqLogicAttr label label-default" data-l1key="configuration" data-l2key="gateway"></span>
-                  </div>
-                  <label class="col-sm-2 control-label">{{Type}}</label>
-                  <div class="col-sm-3">
-                    <span class="eqLogicAttr label label-default" data-l1key="configuration" data-l2key="type" id="typefield"></span>
-                  </div>
+              </div>
+              <div class="form-group" id="gatewayfield">
+                <label class="col-sm-3 control-label">{{Gateway}}</label>
+                <div class="col-sm-3">
+                  <span class="eqLogicAttr label label-default" data-l1key="configuration" data-l2key="gateway"></span>
                 </div>
+                <label class="col-sm-2 control-label">{{Type}}</label>
+                <div class="col-sm-3">
+                  <span class="eqLogicAttr label label-default" data-l1key="configuration" data-l2key="type" id="typefield"></span>
+                </div>
+              </div>
 
-                <div class="form-group"  id="idfield">
-                  <label class="col-sm-3 control-label">{{Identifiant}}</label>
-                  <div class="col-sm-3">
-                    <span class="eqLogicAttr label label-default" data-l1key="configuration" data-l2key="sid"></span>
-                  </div>
-                  <label class="col-sm-2 control-label">{{Identifiant court}}</label>
-                  <div class="col-sm-3">
-                    <span class="eqLogicAttr label label-default" data-l1key="configuration" data-l2key="short_id"></span>
-                  </div>
+              <div class="form-group"  id="idfield">
+                <label class="col-sm-3 control-label">{{Identifiant}}</label>
+                <div class="col-sm-3">
+                  <span class="eqLogicAttr label label-default" data-l1key="configuration" data-l2key="sid"></span>
                 </div>
+                <label class="col-sm-2 control-label">{{Identifiant court}}</label>
+                <div class="col-sm-3">
+                  <span class="eqLogicAttr label label-default" data-l1key="configuration" data-l2key="short_id"></span>
+                </div>
+              </div>
 
-                <div class="form-group" id="modefield">
-                  <label class="col-sm-3 control-label">{{Dernière Activité}}</label>
-                  <div class="col-sm-3">
-                    <span class="eqLogicAttr label label-default" data-l1key="status" data-l2key="lastCommunication"></span>
-                  </div>
+              <div class="form-group" id="modefield">
+                <label class="col-sm-3 control-label">{{Dernière Activité}}</label>
+                <div class="col-sm-3">
+                  <span class="eqLogicAttr label label-default" data-l1key="status" data-l2key="lastCommunication"></span>
                 </div>
-                <center>
-                  <img src="core/img/no_image.gif" data-original=".jpg" id="img_device" class="img-responsive" style="max-height : 250px;"  onerror="this.src='plugins/xiaomihome/doc/images/xiaomihome_icon.png'"/>
-                </center>
-              </fieldset>
-            </form>
-            <div class="alert alert-info globalRemark" style="display:none">{{Veuillez renseigner l'ip puis sauver. Ensuite il vous suffit de cliquer sur Récupérer les infos. Si le device est trouvé les identifiants et le token seront trouvés. Certains devices (aspirateur, plafonnier xiaomi, cuiseur à riz petit format ...) sont une exception dans ce cas il faut récupérer le token avant. Veuillez vous référer à la doc. Pour la gateway il suffit juste de la récupérer dans les options développeurs de Mi Home}}</div>
-          </div>
+              </div>
+              <center>
+                <img src="core/img/no_image.gif" data-original=".jpg" id="img_device" class="img-responsive" style="max-height : 250px;"  onerror="this.src='plugins/xiaomihome/doc/images/xiaomihome_icon.png'"/>
+              </center>
+            </fieldset>
+          </form>
+          <div class="alert alert-info globalRemark" style="display:none">{{Veuillez renseigner l'ip puis sauver. Ensuite il vous suffit de cliquer sur Récupérer les infos. Si le device est trouvé les identifiants et le token seront trouvés. Certains devices (aspirateur, plafonnier xiaomi, cuiseur à riz petit format ...) sont une exception dans ce cas il faut récupérer le token avant. Veuillez vous référer à la doc. Pour la gateway il suffit juste de la récupérer dans les options développeurs de Mi Home}}</div>
         </div>
       </div>
-      <div role="tabpanel" class="tab-pane" id="commandtab">
+    </div>
+    <div role="tabpanel" class="tab-pane" id="commandtab">
 
-        <table id="table_cmd" class="table table-bordered table-condensed">
-          <thead>
-            <tr>
-              <th style="width: 50px;">#</th>
-              <th style="width: 250px;">{{Nom}}</th>
-              <th style="width: 100px;">{{Type}}</th>
-              <th style="width: 100px;">{{Unité}}</th>
-              <th style="width: 150px;">{{Paramètres}}</th>
-              <th style="width: 100px;"></th>
-            </tr>
-          </thead>
-          <tbody>
+      <table id="table_cmd" class="table table-bordered table-condensed">
+        <thead>
+          <tr>
+            <th style="width: 50px;">#</th>
+            <th style="width: 250px;">{{Nom}}</th>
+            <th style="width: 100px;">{{Type}}</th>
+            <th style="width: 100px;">{{Unité}}</th>
+            <th style="width: 150px;">{{Paramètres}}</th>
+            <th style="width: 100px;"></th>
+          </tr>
+        </thead>
+        <tbody>
 
-          </tbody>
-        </table>
+        </tbody>
+      </table>
 
-      </div>
     </div>
   </div>
 </div>
-
-<?php include_file('desktop', 'xiaomihome', 'js', 'xiaomihome'); ?>
-<?php include_file('core', 'plugin.template', 'js'); ?>
+</div>
 
 <script>
-
-$( "#modelfield" ).change(function(){
-  if (['gateway','purifier','pm25','humidifier','vacuum','ricecooker'].indexOf($('#modelfield').value()) != -1) {
-    $('#passfield').show();
-    $('.globalRemark').show();
-    $('.syncinfo').show();
-  } else {
-    $('#passfield').hide();
-    $('.syncinfo').hide();
-    $('.globalRemark').hide();
-  }
-});
-
 $( "#typefield" ).change(function(){
   if ($('#typefield').value() == 'aquara') {
-	  $("#modelfield").prop('disabled', 'disabled');
+    $("#modelfield").prop('disabled', 'disabled');
+    $('#idfield').show();
+    $('#ipfield').hide();
+    $('.syncinfo').hide();
     if ($('#modelfield').value() == 'gateway') {
-	    $("#passtoken").text("Password");
+      $("#passtoken").text("Password");
       $('#passfield').show();
       $('.globalRemark').show();
     } else {
       $('#passfield').hide();
       $('.globalRemark').hide();
     }
-    $('#idfield').show();
-    $('#ipfield').hide();
-    $('.syncinfo').hide();
   }
   else if ($('#typefield').value() == 'yeelight') {
-	  $("#modelfield").removeAttr("disabled");
+    $("#modelfield").removeAttr("disabled");
     $('#passfield').hide();
     $('#idfield').hide();
     $('#ipfield').show();
@@ -450,8 +434,8 @@ $( "#typefield" ).change(function(){
     $('.globalRemark').hide();
   }
   else if ($('#typefield').value() == 'wifi') {
-	  $("#modelfield").removeAttr("disabled");
-	  $("#passtoken").text("Token");
+    $("#modelfield").removeAttr("disabled");
+    $("#passtoken").text("Token");
     $('#passfield').show();
     $('.globalRemark').show();
     $('.syncinfo').show();
@@ -461,3 +445,5 @@ $( "#typefield" ).change(function(){
 });
 </script>
 
+<?php include_file('desktop', 'xiaomihome', 'js', 'xiaomihome'); ?>
+<?php include_file('core', 'plugin.template', 'js'); ?>
