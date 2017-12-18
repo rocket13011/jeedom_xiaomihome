@@ -85,6 +85,6 @@ Note : Il n'est pas nécessaire de changer la langue de l'application.
 
 Vérifier que vous avez bien obtenu le token, pour les appliances qui ne le fournissent pas, des tutos sont présents dans la doc.
 
-## Changelog
+## Änderungsprotokoll
 
 [Voir la page dédiée](changelog.md)
