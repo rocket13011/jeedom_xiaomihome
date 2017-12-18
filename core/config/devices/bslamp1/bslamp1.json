@@ -1,6 +1,6 @@
 {
     "bslamp1": {
-        "name": "Lampe de Chevet (bslamp1)",
+        "name": "Lampe de Chevet",
 		"groupe" : "Yeelight",
 		"configuration" : {
 			"model" : "bslamp1",
