@@ -4,6 +4,10 @@ Important : en cas de mise à jour disponible pour laquelle il n'y a pas d'info 
 
 ## Version vom 14. Dezember 2017
 
+Refonte de la page équipement qui empêche la création manuelle des équipements Aqara
+
+## Version vom 14. Dezember 2017
+
 Ajout de la commande refresh sur les devices aqara (zigbee) qui permet de demander l'état actuel des capteurs
 
 ## Version vom 21. November 2017
