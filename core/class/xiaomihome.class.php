@@ -107,8 +107,8 @@ class xiaomihome extends eqLogic {
             $xiaomihome->setConfiguration('short_id',$_def['short_id']);
             $xiaomihome->setConfiguration('gateway',$_def['source']);
             $xiaomihome->setStatus('lastCommunication',date('Y-m-d H:i:s'));
-            $xiaomihome->setConfiguration('applyDevice','');
             $xiaomihome->save();
+            $xiaomihome->applyModuleConfiguration($_def['model']);
         } elseif ($_type == 'yeelight') {
             if (!isset($_def['capabilities']['model']) || !isset($_def['capabilities']['id'])) {
                 log::add('xiaomihome', 'error', 'Information manquante pour ajouter l\'équipement : ' . print_r($_def, true));
@@ -149,8 +149,8 @@ class xiaomihome extends eqLogic {
             $xiaomihome->setConfiguration('gateway',$_def['ip']);
             $xiaomihome->setConfiguration('ipwifi', $_def['ip']);
             $xiaomihome->setStatus('lastCommunication',date('Y-m-d H:i:s'));
-            $xiaomihome->setConfiguration('applyDevice','');
             $xiaomihome->save();
+            $xiaomihome->applyModuleConfiguration($_def['model']);
         }
         return $xiaomihome;
     }
