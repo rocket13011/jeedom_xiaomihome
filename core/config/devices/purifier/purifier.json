@@ -23,6 +23,21 @@
 				}
             },
 			{
+                "name": "Etat",
+                "type": "info",
+                "subtype": "string",
+                "display": {
+					"generic_type": "DONT"
+                },
+                "isVisible": 1,
+                "isHistorized": 0,
+                "logicalId": "status::power",
+                "template": {
+					"dashboard": "line",
+					"mobile": "line"
+				}
+            },
+			{
                 "name": "Statut",
                 "type": "info",
                 "subtype": "string",

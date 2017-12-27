@@ -23,7 +23,22 @@
 				}
             },
 			{
-                "name": "Statut",
+                "name": "Etat",
+                "type": "info",
+                "subtype": "string",
+                "display": {
+					"generic_type": "DONT"
+                },
+                "isVisible": 1,
+                "isHistorized": 0,
+                "logicalId": "status::power",
+                "template": {
+					"dashboard": "line",
+					"mobile": "line"
+				}
+            },
+			{
+                "name": "Mode",
                 "type": "info",
                 "subtype": "string",
                 "display": {
@@ -84,6 +99,22 @@
 					"dashboard": "line",
 					"mobile": "line"
 				}
+            },
+			{
+                "name": "Luminosité",
+                "type": "info",
+                "subtype": "numeric",
+                "display": {
+                    "icon": "<i class=\"fa fa-sun-o\"><\/i>",
+                    "generic_type": "BRIGHTNESS"
+                },
+                "isVisible": 1,
+                "isHistorized": 0,
+                "logicalId": "status::bright",
+                "template": {
+                    "dashboard": "line",
+                    "mobile": "line"
+                }
             },
 			{
                 "name": "Filtre",
