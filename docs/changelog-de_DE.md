@@ -2,6 +2,13 @@
 
 Important : en cas de mise à jour disponible pour laquelle il n'y a pas d'information dans cette section, c'est qu'elle n'intègre aucune nouveauté majeure. Cela peut être un ajout de documentation, une correction de documentation, des traductions ou bien de la correction de bugs mineurs.
 
+
+## Version du 27 décembre 2017
+
+Correction d'un bug sur création équipements
+
+Ajout du Purificateur Pro
+
 ## Version vom 14. Dezember 2017
 
 Refonte de la page équipement qui empêche la création manuelle des équipements Aqara
