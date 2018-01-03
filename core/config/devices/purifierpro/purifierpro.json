@@ -1,9 +1,9 @@
 {
-	"purifier": {
-		"name": "Purificateur d'air",
+	"purifierpro": {
+		"name": "Purificateur d'air pro",
 		"groupe" : "Wifi",
 		"configuration" : {
-			"model" : "purifier",
+			"model" : "purifierpro",
 			"type" : "wifi"
 		},
         "commands": [
@@ -38,7 +38,7 @@
 				}
             },
 			{
-                "name": "Statut",
+                "name": "Mode",
                 "type": "info",
                 "subtype": "string",
                 "display": {
@@ -99,6 +99,22 @@
 					"dashboard": "line",
 					"mobile": "line"
 				}
+            },
+			{
+                "name": "Luminosité",
+                "type": "info",
+                "subtype": "numeric",
+                "display": {
+                    "icon": "<i class=\"fa fa-sun-o\"><\/i>",
+                    "generic_type": "BRIGHTNESS"
+                },
+                "isVisible": 1,
+                "isHistorized": 0,
+                "logicalId": "status::bright",
+                "template": {
+                    "dashboard": "line",
+                    "mobile": "line"
+                }
             },
 			{
                 "name": "Filtre",

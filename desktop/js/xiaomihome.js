@@ -53,10 +53,15 @@ $( "#typefield" ).change(function(){
 
 $( "#sid" ).change(function(){
   if ($('#sid').value() == '') {
-    $('#newmodelfield').show();
-  }
-  else {
     $('#newmodelfield').hide();
+    $('#newmodelfield2').show();
+	$('.eqLogicAttr[data-l1key=configuration][data-l2key=applyDevice]').value($('.eqLogicAttr[data-l1key=configuration][data-l2key=applyDevice2]').value());
+  }
+  else { 
+    $('#newmodelfield').show();
+    $('#newmodelfield2').hide();
+    $('.eqLogicAttr[data-l1key=configuration][data-l2key=applyDevice]').attr('disabled', true);
+	$('.eqLogicAttr[data-l1key=configuration][data-l2key=applyDevice]').value($('.eqLogicAttr[data-l1key=configuration][data-l2key=model]').value());
   }
 });
 
@@ -90,13 +95,13 @@ $('.discover').on('click', function () {
             });
 });
 
- $('.eqLogicAttr[data-l1key=configuration][data-l2key=model]').on('change', function () {
-  if($('.li_eqLogic.active').attr('data-eqlogic_id') != ''){
-		
-     icon = $('.eqLogicAttr[data-l1key=configuration][data-l2key=model]').value();
-	 console.log('toto');
-	 console.log(icon);
-         if(icon != '' && icon != null){
+function iconChange(){
+if($('.li_eqLogic.active').attr('data-eqlogic_id') != ''){
+     icon = $('.eqLogicAttr[data-l1key=configuration][data-l2key=applyDevice]').value();
+         if(icon == '' || icon == null){
+			 icon = $('.eqLogicAttr[data-l1key=configuration][data-l2key=model]').value();
+		 }
+		 if(icon != '' && icon != null){
              $('#img_device').attr("src", 'plugins/xiaomihome/core/config/devices/'+icon+'/'+icon+'.png');
          } else {
 			 $('#img_device').attr("src", 'plugins/xiaomihome/doc/images/xiaomihome_icon.png');
@@ -104,16 +109,17 @@ $('.discover').on('click', function () {
  }else{
     $('#img_device').attr("src",'plugins/xiaomihome/doc/images/xiaomihome_icon.png');
 }
-});
-
-$('.eqLogicAttr[data-l1key=configuration][data-l2key=applyDevice]').on('change', function () {
-  setTimeout(modelSync, 50);
-});
-
-function modelSync() {
-    $('.eqLogicAttr[data-l1key=configuration][data-l2key=model]').value($('.eqLogicAttr[data-l1key=configuration][data-l2key=applyDevice]').value());
 }
+ $('.eqLogicAttr[data-l1key=configuration][data-l2key=applyDevice]').on('change', function () {
+  $('.eqLogicAttr[data-l1key=configuration][data-l2key=applyDevice]').value();
+  setTimeout(iconChange,50);
+});
 
+ $('.eqLogicAttr[data-l1key=configuration][data-l2key=applyDevice2]').on('change', function () {
+  if ($('#sid').value() == '') {
+  $('.eqLogicAttr[data-l1key=configuration][data-l2key=applyDevice]').value($(this).value());
+  }
+});
 $('body').on('xiaomihome::includeDevice', function (_event,_options) {
     if (modifyWithoutSave) {
         $('#div_inclusionAlert').showAlert({message: '{{Un périphérique vient d\'être découvert. Veuillez réactualiser la page}}', level: 'warning'});

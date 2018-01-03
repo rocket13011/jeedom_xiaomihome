@@ -107,8 +107,8 @@ class xiaomihome extends eqLogic {
             $xiaomihome->setConfiguration('short_id',$_def['short_id']);
             $xiaomihome->setConfiguration('gateway',$_def['source']);
             $xiaomihome->setStatus('lastCommunication',date('Y-m-d H:i:s'));
+            $xiaomihome->setConfiguration('applyDevice','');
             $xiaomihome->save();
-            $xiaomihome->applyModuleConfiguration($_def['model']);
         } elseif ($_type == 'yeelight') {
             if (!isset($_def['capabilities']['model']) || !isset($_def['capabilities']['id'])) {
                 log::add('xiaomihome', 'error', 'Information manquante pour ajouter l\'équipement : ' . print_r($_def, true));
@@ -149,8 +149,8 @@ class xiaomihome extends eqLogic {
             $xiaomihome->setConfiguration('gateway',$_def['ip']);
             $xiaomihome->setConfiguration('ipwifi', $_def['ip']);
             $xiaomihome->setStatus('lastCommunication',date('Y-m-d H:i:s'));
+            $xiaomihome->setConfiguration('applyDevice','');
             $xiaomihome->save();
-            $xiaomihome->applyModuleConfiguration($_def['model']);
         }
         return $xiaomihome;
     }
@@ -284,12 +284,18 @@ class xiaomihome extends eqLogic {
     }
 
     public function postSave() {
-        if (($this->getConfiguration('applyDevice') != $this->getConfiguration('model')) && '' == $this->getConfiguration('model')) {
+        if (($this->getConfiguration('applyDevice') != $this->getConfiguration('model')) && $this->getConfiguration('type') == '') {
             foreach ($this->getCmd() as $cmd) {
                 $cmd->remove();
             }
             $this->applyModuleConfiguration($this->getConfiguration('applyDevice'));
-        }
+        } else if ($this->getConfiguration('type') == 'aquara' && $this->getConfiguration('applyDevice') != $this->getConfiguration('model')) {
+			$this->applyModuleConfiguration($this->getConfiguration('model'));
+		} else if ($this->getConfiguration('type') == 'yeelight' && $this->getConfiguration('applyDevice') != $this->getConfiguration('model')) {
+			$this->applyModuleConfiguration($this->getConfiguration('model'));
+		} else if ($this->getConfiguration('type') == 'wifi' && $this->getConfiguration('applyDevice') != $this->getConfiguration('model')) {
+			$this->applyModuleConfiguration($this->getConfiguration('model'));
+		}
     }
 
     public static function devicesParameters($_device = '') {
@@ -321,6 +327,7 @@ class xiaomihome extends eqLogic {
 
     public function applyModuleConfiguration($model) {
         $this->setConfiguration('applyDevice', $model);
+        $this->setConfiguration('applyDevice2', $model);
         $this->setConfiguration('model',$model);
         $this->save();
         //$this->import($device);

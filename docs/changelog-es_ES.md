@@ -1,6 +1,13 @@
 # Changelog
 
-Important : en cas de mise à jour disponible pour laquelle il n'y a pas d'info dans cette section, c'est qu'elle n'intègre aucune nouveautés majeures. Cela peut être un ajout de doc, une correction de doc, des traductions ou bien de la correction de bugs mineurs
+Important : en cas de mise à jour disponible pour laquelle il n'y a pas d'information dans cette section, c'est qu'elle n'intègre aucune nouveauté majeure. Cela peut être un ajout de documentation, une correction de documentation, des traductions ou bien de la correction de bugs mineurs.
+
+
+## Version du 27 décembre 2017
+
+Correction d'un bug sur création équipements
+
+Ajout du Purificateur Pro
 
 ## Version du 14 décembre 2017
 
@@ -8,7 +15,7 @@ Refonte de la page équipement qui empêche la création manuelle des équipemen
 
 ## Version du 14 décembre 2017
 
-Ajout de la commande refresh sur les devices aqara (zigbee) qui permet de demander l'état actuel des capteurs
+Ajout de la commande Rafraichir sur les équipements aqara (zigbee) qui permet de demander l'état actuel des capteurs
 
 ## Version du 21 novembre 2017
 
@@ -45,16 +52,16 @@ Ajout d'un regroupement des capteurs Aqara par gateway
 
 Ajout de l'information si l'équipement est offline sur la page globalement équipement
 
-Ajout d'informations sur equipement Wifi :
+Ajout d'informations sur un équipement Wifi :
 
-* temp sur la prise
+* temps sur la prise
 
-* puissance et temp sur la multiprise
+* puissance et temps sur la multiprise
 
 ## Version du 20 avril 2017
 
-Refonte du daemon en python
+Refonte du démon en python
 
-Utilisation du daemon pour le statut et commandes Yeelight
+Utilisation du démon pour le statut et commandes Yeelight
 
 Ajout de nouveaux périphériques Wifi Xiaomi
