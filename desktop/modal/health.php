@@ -32,6 +32,7 @@ $eqLogics = xiaomihome::byType('xiaomihome');
 			<th>{{Identifiant}}</th>
 			<th>{{Online}}</th>
 			<th>{{Statut}}</th>
+			<th>{{Type}}</th>
 			<th>{{Batterie}}</th>
 			<th>{{Dernière communication}}</th>
 			<th>{{Date création}}</th>
@@ -80,6 +81,7 @@ foreach ($eqLogics as $eqLogic) {
 	} else {
 		$battery_status = '<span class="label label-primary" style="font-size : 1em;">' . $battery . '%</span>';
 	}
+	echo '<td><span class="label label-info" style="font-size : 1em; cursor : default;">' . $eqLogic->getConfiguration('type') . '</span></td>';
 	echo '<td>' . $battery_status . '</td>';
 	echo '<td><span class="label label-info" style="font-size : 1em; cursor : default;">' . $eqLogic->getStatus('lastCommunication') . '</span></td>';
 	echo '<td><span class="label label-info" style="font-size : 1em; cursor : default;">' . $eqLogic->getConfiguration('createtime') . '</span></td></tr>';
