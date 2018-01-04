@@ -22,7 +22,7 @@ function xiaomihome_update() {
         if ($xiaomihome->getConfiguration('type') == 'aquara') {
             $xiaomihomeCmd = xiaomihomeCmd::byEqLogicIdAndLogicalId($xiaomihome->getId(),'refresh');
             if (!is_object($xiaomihomeCmd)) {
-                log::add('xiaomihome', 'debug', 'Création de la commande refresh aquara');
+                log::add('xiaomihome', 'debug', 'Création de la commande Rafraichir Aqara');
                 $xiaomihomeCmd = new xiaomihomeCmd();
                 $xiaomihomeCmd->setName(__('Rafraichir', __FILE__));
                 $xiaomihomeCmd->setEqLogic_id($xiaomihome->getId());

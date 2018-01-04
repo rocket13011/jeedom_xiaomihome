@@ -46,7 +46,7 @@ Les équipements actuellement compatibles fournissent les informations suivantes
 
 ### D'autres commandes communes
 
-Pour tous ces équipements, une commande **Rafraîchir** permet de forcer la mise à jour de ses informations dans Jeedom.
+Pour tous ces équipements, une commande **Rafraichir** permet de forcer la mise à jour de ses informations dans Jeedom.
 
 L'API fournit également l'**état des piles** des équipements. C'est le voltage de la pile qui est retourné. Avec une fiche technique de l'API indiquant qu'elle sera au maximum de 3.2V et logiquement à 2.8V la pile n'est plus utilisable. Dans les faits, ce sont des piles 3V, voici donc les informations fournies dans Jeedom :
 
