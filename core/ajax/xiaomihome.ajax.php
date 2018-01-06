@@ -23,7 +23,7 @@ try {
     if (!isConnect('admin')) {
         throw new Exception(__('401 - {{Accès non autorisé}}', __FILE__));
     }
-	
+
 	if (init('action') == 'autoDetectModule') {
 		$eqLogic = xiaomihome::byId(init('id'));
 		if (!is_object($eqLogic)) {
@@ -35,12 +35,12 @@ try {
 		$eqLogic->applyModuleConfiguration($eqLogic->getConfiguration('model'));
 		ajax::success();
 	}
-	
+
 	if (init('action') == 'discover') {
 		xiaomihome::discover(init('mode'));
 		ajax::success();
 	}
-	
+
 	if (init('action') == 'sync') {
 		$eqLogic = xiaomihome::byId(init('id'));
 		if (!is_object($eqLogic)) {
@@ -49,7 +49,7 @@ try {
 		ajax::success($eqLogic->get_wifi_info());
 	}
 
-    throw new Exception(__('{{Aucune methode correspondante à}} : ', __FILE__) . init('action'));
+    throw new Exception(__('{{Aucune méthode correspondante à}} : ', __FILE__) . init('action'));
     /*     * *********Catch exeption*************** */
 } catch (Exception $e) {
     ajax::error(displayExeption($e), $e->getCode());

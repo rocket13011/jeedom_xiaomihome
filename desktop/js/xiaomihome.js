@@ -24,7 +24,7 @@ $( "#typefield" ).change(function(){
     if ($('#modelfield').value() == 'gateway') {
       $("#passtoken").text("Password");
       $('#passfield').show();
-      $('.globalRemark').text("Le mot de passe a renseigné se trouve dans les options développeurs de la gateway dans Mi Home");
+      $('.globalRemark').text("Le mot de passe à renseigner se trouve dans les options développeurs de la gateway dans Mi Home. Voir la documentation.");
       $('.globalRemark').show();
     } else {
       $('#passfield').hide();
@@ -43,7 +43,7 @@ $( "#typefield" ).change(function(){
     $('#modelfield option:not(:selected)').prop('disabled', true);
     $("#passtoken").text("Token");
     $('#passfield').show();
-    $('.globalRemark').text("Le token peut être trouvé via le bouton récupérer les infos, si ca ne retourne pas de valeur correcte, il faut utilliser la documentation et une des méthodes fournies");
+    $('.globalRemark').text("Le token peut être trouvé via le bouton récupérer les infos. Si ça ne retourne pas de valeur correcte, il faut utilliser la documentation et une des méthodes fournies.");
     $('.globalRemark').show();
     $('.syncinfo').show();
     $('#idfield').hide();
@@ -122,14 +122,14 @@ if($('.li_eqLogic.active').attr('data-eqlogic_id') != ''){
 });
 $('body').on('xiaomihome::includeDevice', function (_event,_options) {
     if (modifyWithoutSave) {
-        $('#div_inclusionAlert').showAlert({message: '{{Un périphérique vient d\'être découvert. Veuillez réactualiser la page}}', level: 'warning'});
+        $('#div_inclusionAlert').showAlert({message: '{{Un périphérique vient d\'être découvert. Veuillez réactualiser la page.}}', level: 'warning'});
     } else {
         window.location.reload();
     }
 });
 
 $('#bt_autoDetectModule').on('click', function () {
-    bootbox.confirm('{{Etes-vous sûr de vouloir récréer toutes les commandes ? Cela va supprimer les commandes existantes}}', function (result) {
+    bootbox.confirm('{{Etes-vous sûr de vouloir recréer toutes les commandes ? Cela supprimera les commandes existantes.}}', function (result) {
         if (result) {
             $.ajax({
                 type: "POST", // méthode de transmission des données au fichier php
@@ -148,7 +148,7 @@ $('#bt_autoDetectModule').on('click', function () {
                         $('#div_alert').showAlert({message: data.result, level: 'danger'});
                         return;
                     }
-                    $('#div_alert').showAlert({message: '{{Opération réalisée avec succès}}', level: 'success'});
+                    $('#div_alert').showAlert({message: '{{Opération réalisée avec succès.}}', level: 'success'});
                     $('.li_eqLogic[data-eqLogic_id=' + $('.eqLogicAttr[data-l1key=id]').value() + ']').click();
                 }
             });
@@ -157,9 +157,9 @@ $('#bt_autoDetectModule').on('click', function () {
 });
 
 $('#btn_sync').on('click', function () {
-    bootbox.confirm('{{Assurez vous d\'avoir renseigné l\'adresse ip du device et d\'avoir sauvegardé avant de lancer. Ensuite le retour se fera dans les 5 secondes}}', function (result) {
+    bootbox.confirm('{{Assurez-vous d\'avoir renseigné l\'adresse IP de l\'équipement et d\'avoir sauvegardé avant de lancer. Ensuite le retour se fera dans les 5 secondes.}}', function (result) {
         if (result) {
-            $('#div_alert').showAlert({message: '{{Recherche en cours}}', level: 'warning'});
+            $('#div_alert').showAlert({message: '{{Recherche en cours...}}', level: 'warning'});
             $.ajax({
                 type: "POST", // méthode de transmission des données au fichier php
                 url: "plugins/xiaomihome/core/ajax/xiaomihome.ajax.php",
@@ -224,7 +224,7 @@ function addCmdToTable(_cmd) {
     tr += '<span class="subType" subType="' + init(_cmd.subType) + '"></span>';
     tr += '</td>';
     tr += '<td>';
-    tr += '<input class="cmdAttr form-control input-sm" data-l1key="unite" style="width : 90px;" placeholder="{{Unite}}">';
+    tr += '<input class="cmdAttr form-control input-sm" data-l1key="unite" style="width : 90px;" placeholder="{{Unité}}">';
     tr += '</td><td>';
     tr += '<span><label class="checkbox-inline"><input type="checkbox" class="cmdAttr checkbox-inline" data-l1key="isVisible" checked/>{{Afficher}}</label></span> ';
     if (_cmd.subType == "binary") {
@@ -260,7 +260,7 @@ if (init(_cmd.type) == 'action') {
   tr += '<td>';
   tr += '<div class="row">';
   tr += '<div class="col-lg-6">';
-  tr += '<a class="cmdAction btn btn-default btn-sm" data-l1key="chooseIcon"><i class="fa fa-flag"></i> Icone</a>';
+  tr += '<a class="cmdAction btn btn-default btn-sm" data-l1key="chooseIcon"><i class="fa fa-flag"></i> Icône</a>';
   tr += '<span class="cmdAttr" data-l1key="display" data-l2key="icon" style="margin-left : 10px;"></span>';
   tr += '</div>';
   tr += '<div class="col-lg-6">';
@@ -312,6 +312,6 @@ $('body').on('xiaomihome::found', function (_event,_options) {
 });
 
 $('body').on('xiaomihome::notfound', function (_event,_options) {
-    $('#div_alert').showAlert({message: '{{Device pas trouvé veuillez vérifier l\'ip et relancer}}', level: 'danger'});
+    $('#div_alert').showAlert({message: '{{Equipement non trouvé. Veuillez vérifier l\'IP et relancer.}}', level: 'danger'});
 });
 }

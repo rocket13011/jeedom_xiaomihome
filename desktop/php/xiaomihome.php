@@ -128,7 +128,7 @@ if (class_exists('blea')){
       }
     }
     if ($status == 0) {
-      echo "<br/><br/><br/><center><span style='color:#767676;font-size:1.2em;font-weight: bold;'>{{Aucun aquara détecté, démarrer un node pour ajout}}</span></center>";
+      echo "<br/><br/><br/><center><span style='color:#767676;font-size:1.2em;font-weight: bold;'>{{Aucun équipement Aqara détecté. Démarrez un node pour en ajouter un.}}</span></center>";
     }
     ?>
 
@@ -163,7 +163,7 @@ if (class_exists('blea')){
     if ($status == 1) {
       echo '</div>';
     } else {
-      echo "<br/><br/><br/><center><span style='color:#767676;font-size:1.2em;font-weight: bold;'>{{Aucune Yeelight détectée, lancer un scan yeelight}}</span></center>";
+      echo "<br/><br/><br/><center><span style='color:#767676;font-size:1.2em;font-weight: bold;'>{{Aucun équipement Yeelight détecté. Lancez un Scan Yeelight.}}</span></center>";
     }
     ?>
 
@@ -194,7 +194,7 @@ if (class_exists('blea')){
     if ($status == 1) {
       echo '</div>';
     } else {
-      echo "<br/><br/><br/><center><span style='color:#767676;font-size:1.2em;font-weight: bold;'>{{Aucun Xiaomi Wifi, ajoutez en un}}</span></center>";
+      echo "<br/><br/><br/><center><span style='color:#767676;font-size:1.2em;font-weight: bold;'>{{Aucun équipement Xiaomi Wifi. Ajoutez-en un.}}</span></center>";
     }
     ?>
 
@@ -224,7 +224,7 @@ if (class_exists('blea')){
     if ($status == 1) {
       echo '</div>';
     } else {
-      echo "<br/><br/><br/><center><span style='color:#767676;font-size:1.2em;font-weight: bold;'>{{Aucun Xiaomi Bluetooth, ajoutez en un via Blea}}</span></center>";
+      echo "<br/><br/><br/><center><span style='color:#767676;font-size:1.2em;font-weight: bold;'>{{Aucun équipement Xiaomi Bluetooth. Ajoutez-en via le plugin BLEA (Bluetooth Advertisement).}}</span></center>";
     }
     ?>
 
@@ -287,7 +287,7 @@ if (class_exists('blea')){
                 </div>
               </div>
               <div class="form-group" id="ipfield">
-                <label class="col-sm-3 control-label">{{Adresse Ip}}</label>
+                <label class="col-sm-3 control-label">{{Adresse IP}}</label>
                 <div class="col-sm-6">
                   <input class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="ipwifi" placeholder="Ip du device wifi"></span>
                 </div>
@@ -416,7 +416,7 @@ if (class_exists('blea')){
               </center>
             </fieldset>
           </form>
-          <div class="alert alert-info globalRemark" style="display:none">{{Veuillez renseigner l'ip puis sauver. Ensuite il vous suffit de cliquer sur Récupérer les infos. Si le device est trouvé les identifiants et le token seront trouvés. Certains devices (aspirateur, plafonnier xiaomi, cuiseur à riz petit format ...) sont une exception dans ce cas il faut récupérer le token avant. Veuillez vous référer à la doc. Pour la gateway il suffit juste de la récupérer dans les options développeurs de Mi Home}}</div>
+          <div class="alert alert-info globalRemark" style="display:none">{{Veuillez renseigner l'IP, puis sauvegardez. Ensuite, il vous suffit de cliquer sur "Récupérer les infos". Si l'équipement est trouvé, les identifiants et le token seront également trouvés. Certains équipements (aspirateur, plafonnier Xiaomi, cuiseur à riz petit format ...) sont une exception : Dans ce cas, il faut récupérer le token avant. Veuillez vous référer à la doc. Pour la gateway, il suffit juste de la récupérer dans les options développeurs de Mi Home.}}</div>
         </div>
       </div>
     </div>

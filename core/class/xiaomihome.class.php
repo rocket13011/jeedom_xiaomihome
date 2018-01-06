@@ -22,7 +22,7 @@ class xiaomihome extends eqLogic {
         $eqLogics = eqLogic::byType('xiaomihome', true);
         foreach ($eqLogics as $eqLogic) {
             if ($eqLogic->getConfiguration('type') == 'yeelight') {
-                log::add('xiaomihome', 'debug', 'Refresh de Yeelight : ' . $eqLogic->getName());
+                log::add('xiaomihome', 'debug', 'Rafraîchissement de Yeelight : ' . $eqLogic->getName());
                 $refreshcmd = xiaomihomeCmd::byEqLogicIdAndLogicalId($eqLogic->getId(),'refresh');
                 $refreshcmd->execCmd();
             }
@@ -37,12 +37,12 @@ class xiaomihome extends eqLogic {
         $eqLogics = eqLogic::byType('xiaomihome', true);
         foreach($eqLogics as $xiaomihome) {
             if ($xiaomihome->getConfiguration('type') == 'wifi') {
-                log::add('xiaomihome', 'debug', 'Refresh de XiaomiWifi : ' . $xiaomihome->getName());
+                log::add('xiaomihome', 'debug', 'Rafraîchissement de XiaomiWifi : ' . $xiaomihome->getName());
                 $refreshcmd = xiaomihomeCmd::byEqLogicIdAndLogicalId($xiaomihome->getId(),'refresh');
                 $refreshcmd->execCmd();
             }
             if ($xiaomihome->getConfiguration('type') == 'aquara' && $xiaomihome->getConfiguration('model') == 'gateway') {
-                log::add('xiaomihome', 'debug', 'Refresh de Aqara : ' . $xiaomihome->getName());
+                log::add('xiaomihome', 'debug', 'Rafraîchissement de Aqara : ' . $xiaomihome->getName());
                 $xiaomihome->pingHost($xiaomihome->getConfiguration('gateway'));
             }
         }
@@ -52,7 +52,7 @@ class xiaomihome extends eqLogic {
         event::add('jeedom::alert', array(
             'level' => 'warning',
             'page' => 'xiaomihome',
-            'message' => __('Nouveau module detecté', __FILE__),
+            'message' => __('Nouveau module détecté', __FILE__),
         ));
         if ($_type == 'aquara') {
             if (!isset($_def['model']) || !isset($_def['sid'])) {
@@ -60,7 +60,7 @@ class xiaomihome extends eqLogic {
                 event::add('jeedom::alert', array(
                     'level' => 'danger',
                     'page' => 'xiaomihome',
-                    'message' => __('Information manquante pour ajouter l\'équipement. Inclusion impossible', __FILE__),
+                    'message' => __('Information manquante pour ajouter l\'équipement. Inclusion impossible.', __FILE__),
                 ));
                 return false;
             }
@@ -101,7 +101,7 @@ class xiaomihome extends eqLogic {
                 event::add('jeedom::alert', array(
                     'level' => 'warning',
                     'page' => 'xiaomihome',
-                    'message' => __('Module inclu avec succès ' . $_def['model'], __FILE__),
+                    'message' => __('Module inclus avec succès ' . $_def['model'], __FILE__),
                 ));
             }
             $xiaomihome->setConfiguration('short_id',$_def['short_id']);
@@ -115,7 +115,7 @@ class xiaomihome extends eqLogic {
                 event::add('jeedom::alert', array(
                     'level' => 'danger',
                     'page' => 'xiaomihome',
-                    'message' => __('Information manquante pour ajouter l\'équipement. Inclusion impossible', __FILE__),
+                    'message' => __('Information manquante pour ajouter l\'équipement. Inclusion impossible.', __FILE__),
                 ));
                 return false;
             }
@@ -141,7 +141,7 @@ class xiaomihome extends eqLogic {
                 event::add('jeedom::alert', array(
                     'level' => 'warning',
                     'page' => 'xiaomihome',
-                    'message' => __('Module inclu avec succès ' . $_def['capabilities']['model'], __FILE__),
+                    'message' => __('Module inclus avec succès ' . $_def['capabilities']['model'], __FILE__),
                 ));
             }
             $xiaomihome->setConfiguration('model',$_def['capabilities']['model']);
@@ -199,7 +199,7 @@ class xiaomihome extends eqLogic {
             $i++;
         }
         if ($i >= 30) {
-            log::add('xiaomihome', 'error', 'Impossible de lancer le démon xiaomihomed, vérifiez le log', 'unableStartDeamon');
+            log::add('xiaomihome', 'error', 'Impossible de lancer le démon xiaomihomed. Vérifiez le log.', 'unableStartDeamon');
             return false;
         }
         message::removeAll('xiaomihome', 'unableStartDeamon');
@@ -341,7 +341,7 @@ class xiaomihome extends eqLogic {
         event::add('jeedom::alert', array(
             'level' => 'warning',
             'page' => 'xiaomihome',
-            'message' => __('Périphérique reconnu, intégration en cours', __FILE__),
+            'message' => __('Périphérique reconnu, intégration en cours...', __FILE__),
         ));
         if (isset($device['configuration'])) {
             foreach ($device['configuration'] as $key => $value) {
@@ -359,7 +359,7 @@ class xiaomihome extends eqLogic {
         event::add('jeedom::alert', array(
             'level' => 'warning',
             'page' => 'xiaomihome',
-            'message' => __('Création des commandes', __FILE__),
+            'message' => __('Création des commandes...', __FILE__),
         ));
 
         $ids = array();
@@ -450,7 +450,7 @@ class xiaomihome extends eqLogic {
             event::add('jeedom::alert', array(
                 'level' => 'warning',
                 'page' => 'xiaomihome',
-                'message' => __('Envoi des commandes post-inclusion', __FILE__),
+                'message' => __('Envoi des commandes post-inclusion...', __FILE__),
             ));
             sleep(5);
             $sends = explode('&&', $device['afterInclusionSend']);
@@ -601,7 +601,7 @@ class xiaomihomeCmd extends cmd {
             log::add('xiaomihome', 'debug', 'execute : ' . $this->getType() . ' ' . $eqLogic->getConfiguration('type') . ' ' . $this->getLogicalId());
             if ($eqLogic->getConfiguration('type') == 'yeelight') {
                 if ($eqLogic->pingHost($eqLogic->getConfiguration('gateway')) == false) {
-                    log::add('xiaomihome', 'debug', 'Offline Yeelight : ' . $eqLogic->getName());
+                    log::add('xiaomihome', 'debug', 'Equipement Yeelight déconnecté : ' . $eqLogic->getName());
                     return;
                 }
                 switch ($this->getSubType()) {
@@ -730,7 +730,7 @@ class xiaomihomeCmd extends cmd {
                 }
                 $password = $xiaomihome->getConfiguration('password','');
                 if ($password == '') {
-                    log::add('xiaomihome', 'debug', 'Mot de passe manquant sur la gateway Aquara ' . $gateway);
+                    log::add('xiaomihome', 'debug', 'Mot de passe manquant sur la passerelle Aqara ' . $gateway);
                     return;
                 }
                 if ($this->getLogicalId() == 'mid-scenar') {
