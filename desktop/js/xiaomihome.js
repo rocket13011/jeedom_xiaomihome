@@ -95,15 +95,6 @@ $('.discover').on('click', function () {
             });
 });
 
-<<<<<<< HEAD
- $('.eqLogicAttr[data-l1key=configuration][data-l2key=model]').on('change', function () {
-  if($('.li_eqLogic.active').attr('data-eqlogic_id') != ''){
-
-     icon = $('.eqLogicAttr[data-l1key=configuration][data-l2key=model]').value();
-	 console.log('toto');
-	 console.log(icon);
-         if(icon != '' && icon != null){
-=======
 function iconChange(){
 if($('.li_eqLogic.active').attr('data-eqlogic_id') != ''){
      icon = $('.eqLogicAttr[data-l1key=configuration][data-l2key=applyDevice]').value();
@@ -111,7 +102,6 @@ if($('.li_eqLogic.active').attr('data-eqlogic_id') != ''){
 			 icon = $('.eqLogicAttr[data-l1key=configuration][data-l2key=model]').value();
 		 }
 		 if(icon != '' && icon != null){
->>>>>>> fc0edf76dc19b2d40979422ec3e8206dce98fbfb
              $('#img_device').attr("src", 'plugins/xiaomihome/core/config/devices/'+icon+'/'+icon+'.png');
          } else {
 			 $('#img_device').attr("src", 'plugins/xiaomihome/doc/images/xiaomihome_icon.png');
