@@ -18,7 +18,9 @@ Pour cela, il faut :
 * activer le bouton switch pour qu'il passe en vert,
 * le mode local est actif et votre passerelle est accessible sur votre réseau local.
 
-Attention : Pour pouvoir envoyer des commandes vers la passerelle, vous devez renseigner son mot de passe sur sa page équipement, dans Jeedom (**Plugins->Protocole domotique->Xiaomi Home**, puis cliquez sur la passerelle que vous avez au préalable créée). Ce mot de passe est visible sur la page où l'on active le **mode développeur**, dans l'application Mi Home.
+*Attention* : Sur **iOS** (iPhone), dans la page **about**, il n'y a pas de **numéro de version**. Vous devez cliquer 5 fois dans la partie blanche pour continuer.
+
+*Attention* : Pour pouvoir envoyer des commandes vers la passerelle, vous devez renseigner son mot de passe sur sa page équipement, dans Jeedom (**Plugins->Protocole domotique->Xiaomi Home**, puis cliquez sur la passerelle que vous avez au préalable créée). Ce mot de passe est visible sur la page où l'on active le **mode développeur**, dans l'application Mi Home.
 
 ### Création des équipements dans Jeedom
 
