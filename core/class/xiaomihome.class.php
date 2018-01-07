@@ -93,6 +93,7 @@ class xiaomihome extends eqLogic {
                 $xiaomihome->setIsVisible(1);
                 $xiaomihome->setName($device['name'] . ' ' . $_def['sid']);
                 $xiaomihome->setConfiguration('sid', $_def['sid']);
+                $xiaomihome->setConfiguration('type', 'aquara');
                 if (isset($device['configuration'])) {
                     foreach ($device['configuration'] as $key => $value) {
                         $xiaomihome->setConfiguration($key, $value);
@@ -150,6 +151,7 @@ class xiaomihome extends eqLogic {
             $xiaomihome->setConfiguration('ipwifi', $_def['ip']);
             $xiaomihome->setStatus('lastCommunication',date('Y-m-d H:i:s'));
             $xiaomihome->setConfiguration('applyDevice','');
+            $xiaomihome->setConfiguration('type', 'yeelight');
             $xiaomihome->save();
         }
         return $xiaomihome;
