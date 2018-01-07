@@ -18,8 +18,8 @@ Certaines lampes ajoutent des commandes :
 
 * **Yeelight Blanc** : pas d'autres commandes.
 * **Desklamp** : couleur de blanc.
-* **Yeelight RGB** : Online, Statut, Définir couleur RGB, Lumière de lune, Lumière de Soleil, Extinction programmée, Stop Enchainement, Information de luminosité, Température de blanc, Information de température de blanc, Mode, Définir couleur HSV, Couleur HSV, Définir saturation HSV, Saturation HSV, Couleur RGB, Rafraîchir.
-* **Bandeau RGB** : Online, Rafraîchir, Statut, Définir couleur RGB, Lumière de lune, Lumière de Soleil, Extinction programmée, Température de blanc, Stop Enchainement, Information de luminosité, Mode, Définir couleur HSV, Couleur HSV, Définir saturation HSV, Saturation HSV, Couleur RGB.
+* **Yeelight RGB** : Online, Statut, Définir couleur RGB, Lumière de lune, Lumière de Soleil, Extinction programmée, Stop Enchainement, Information de luminosité, Température de blanc, Information de température de blanc, Mode, Définir couleur HSV, Couleur HSV, Définir saturation HSV, Saturation HSV, Couleur RGB, Rafraichir.
+* **Bandeau RGB** : Online, Rafraichir, Statut, Définir couleur RGB, Lumière de lune, Lumière de Soleil, Extinction programmée, Température de blanc, Stop Enchainement, Information de luminosité, Mode, Définir couleur HSV, Couleur HSV, Définir saturation HSV, Saturation HSV, Couleur RGB.
 * **Lampe de Chevet** (socle doré) : couleur RGB, couleur de blanc, mode jour, mode nuit, couleurs HSV.
 * **Yeelight Ceiling** : couleur blanc, mode jour, mode nuit.
 
