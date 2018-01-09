@@ -15,8 +15,8 @@
 * along with Jeedom. If not, see <http://www.gnu.org/licenses/>.
 
 */
-$( "#typefield" ).change(function(){
-  if ($('#typefield').value() == 'aquara') {
+function typefieldChange(){
+	if ($('#typefield').value() == 'aquara') {
     $('#modelfield option:not(:selected)').prop('disabled', true);
     $('#idfield').show();
     $('#ipfield').hide();
@@ -49,6 +49,9 @@ $( "#typefield" ).change(function(){
     $('#idfield').hide();
     $('#ipfield').show();
   }
+}
+$( "#typefield" ).change(function(){
+  setTimeout(typefieldChange,100);
 });
 
 $( "#sid" ).change(function(){
