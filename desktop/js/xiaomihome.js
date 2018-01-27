@@ -318,3 +318,49 @@ $('body').on('xiaomihome::notfound', function (_event,_options) {
     $('#div_alert').showAlert({message: '{{Equipement non trouvé. Veuillez vérifier l\'IP et relancer.}}', level: 'danger'});
 });
 }
+
+$('.inclusion').on('click', function () {
+  var id = $(this).attr('data-id');
+  var dialog_title = '';
+  var dialog_message = '<form class="form-horizontal onsubmit="return false;"> ';
+  dialog_title = '{{Démarrer l\'inclusion d\'un nouveau module}}';
+  dialog_message += '<label class="control-label" > {{Etes vous sûr de vouloir mettre la gateway en inclusion ?}} </label> ' +
+ 
+  ' ';
+  dialog_message += '</form>';
+  bootbox.dialog({
+    title: dialog_title,
+    message: dialog_message,
+    buttons: {
+       "{{Annuler}}": {
+          className: "btn-danger",
+          callback: function () {
+          }
+      },
+      success: {
+        label: "{{Démarrer}}",
+        className: "btn-success",
+        callback: function () {
+			$.ajax({
+        type: "POST", 
+        url: "plugins/xiaomihome/core/ajax/xiaomihome.ajax.php", 
+        data: {
+            action: "InclusionGateway",
+            id: id,
+        },
+        dataType: 'json',
+        error: function (request, status, error) {
+            handleAjaxError(request, status, error);
+        },
+        success: function (data) { 
+            if (data.state != 'ok') {
+                $('#div_alert').showAlert({message: data.result, level: 'danger'});
+                return;
+            }
+        }
+    });
+     }
+ },
+}
+});
+});

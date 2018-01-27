@@ -265,6 +265,22 @@ class xiaomihome extends eqLogic {
             socket_close($socket);
         }
     }
+    
+    public function inclusion_mode(){
+        $value = json_encode(array('apikey' => jeedom::getApiKey('xiaomihome'), 'type' => 'aquara','cmd' => 'send', 'password' => $this->getConfiguration('password',''),'sidG' => $this->getConfiguration('sid'), 'dest' => $this->getConfiguration('gateway') , 'token' => $this->getConfiguration('password') , 'model' => $this->getConfiguration('model'), 'sid' => $this->getConfiguration('sid'), 'short_id' => $this->getConfiguration('short_id'),'switch' => 'join_permission', 'request' => 'yes'));
+        $socket = socket_create(AF_INET, SOCK_STREAM, 0);
+        socket_connect($socket, '127.0.0.1', config::byKey('socketport', 'xiaomihome'));
+        socket_write($socket, $value, strlen($value));
+        socket_close($socket);
+    }
+
+    public function exclusion_mode($target_sid){
+        $value = json_encode(array('apikey' => jeedom::getApiKey('xiaomihome'), 'type' => 'aquara','cmd' => 'send', 'password' => $this->getConfiguration('password',''),'sidG' => $this->getConfiguration('sid'), 'dest' => $this->getConfiguration('gateway') , 'token' => $this->getConfiguration('password') , 'model' => $this->getConfiguration('model'), 'sid' => $this->getConfiguration('sid'), 'short_id' => $this->getConfiguration('short_id'),'switch' => 'remove_device', 'request' => $target_sid));
+        $socket = socket_create(AF_INET, SOCK_STREAM, 0);
+        socket_connect($socket, '127.0.0.1', config::byKey('socketport', 'xiaomihome'));
+        socket_write($socket, $value, strlen($value));
+        socket_close($socket);
+    }
 
     public function getImage() {
         if (file_exists(dirname(__FILE__) . '/../../core/config/devices/' . $this->getConfiguration('model') . '/' . $this->getConfiguration('model') . '.png')) {

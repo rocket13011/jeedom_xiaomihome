@@ -40,6 +40,24 @@ try {
 		xiaomihome::discover(init('mode'));
 		ajax::success();
 	}
+	
+	if (init('action') == 'InclusionGateway') {
+		$eqLogic = xiaomihome::byId(init('id'));
+		ajax::success($eqLogic->inclusion_mode());
+	}
+	
+	if (init('action') == 'ExclusionGateway') {
+		$eqLogics = eqLogic::byType('xiaomihome');
+		foreach ($eqLogics as $eqLogicGateway) {
+			if ($eqLogicGateway->getConfiguration('type') == 'aquara' && $eqLogicGateway->getConfiguration('model') == 'gateway') {
+				if ($eqLogicGateway->getConfiguration('gateway') == init('gateway')){
+					$eqLogic = $eqLogicGateway;
+					break;
+				}
+			}
+		 }
+		ajax::success($eqLogic->exclusion_mode(init('id')));
+	}
 
 	if (init('action') == 'sync') {
 		$eqLogic = xiaomihome::byId(init('id'));

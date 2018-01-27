@@ -85,6 +85,12 @@ if (class_exists('blea')){
       if ($eqLogicGateway->getConfiguration('type') == 'aquara' && $eqLogicGateway->getConfiguration('model') == 'gateway') {
         echo '<legend>' . $eqLogicGateway->getHumanName(true) . '</legend>';
         echo '<div class="eqLogicThumbnailContainer">';
+        echo '<div class="cursor eqLogicAction inclusion" data-id="' . $eqLogicGateway->getId() . '" style="background-color : #ffffff; height : 200px;margin-bottom : 10px;padding : 5px;border-radius: 2px;width : 160px;margin-left : 10px;" >';
+        echo '<center>';
+        echo '<i class="fa fa-sign-in" style="font-size : 7.5em;color:#00979c;"></i>';
+        echo '</center>';
+        echo '<span style="font-size : 1.1em;position:relative; top : 15px;word-break: break-all;white-space: pre-wrap;word-wrap: break-word;color:#00979c"><center>Inclure </br> un module</center></span>';
+        echo '</div>';
         $status = 1;
         $opacity = ($eqLogicGateway->getIsEnable()) ? '' : jeedom::getConfiguration('eqLogic:style:noactive');
         echo '<div class="eqLogicDisplayCard cursor" data-eqLogic_id="' . $eqLogicGateway->getId() . '" style="background-color : #ffffff ; height : 200px;margin-bottom : 10px;padding : 5px;border-radius: 2px;width : 160px;margin-left : 10px;' . $opacity . '" >';
