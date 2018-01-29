@@ -105,7 +105,7 @@ if (class_exists('blea')){
         }
         echo "<center>";
         if (file_exists(dirname(__FILE__) . '/../../core/config/devices/' . $eqLogicGateway->getConfiguration('model') . '/' . $eqLogicGateway->getConfiguration('model') . '.png')) {
-          echo '<img src="plugins/xiaomihome/core/config/devices/' . $eqLogicGateway->getConfiguration('model') . '/' . $eqLogicGateway->getConfiguration('model') . '.png' . '" height="105" width="95" />';
+          echo '<img src="plugins/xiaomihome/core/config/devices/' . $eqLogicGateway->getConfiguration('model') . '/' . $eqLogicGateway->getConfiguration('model') . '.png' . '" height="105" width="105" />';
         } else {
           echo '<img src="' . $plugin->getPathImgIcon() . '" height="105" width="95" />';
         }
@@ -121,7 +121,7 @@ if (class_exists('blea')){
             }
             echo "<center>";
             if (file_exists(dirname(__FILE__) . '/../../core/config/devices/' . $eqLogic->getConfiguration('model') . '/' . $eqLogic->getConfiguration('model') . '.png')) {
-              echo '<img src="plugins/xiaomihome/core/config/devices/' . $eqLogic->getConfiguration('model') . '/' . $eqLogic->getConfiguration('model') . '.png' . '" height="105" width="95" />';
+              echo '<img src="plugins/xiaomihome/core/config/devices/' . $eqLogic->getConfiguration('model') . '/' . $eqLogic->getConfiguration('model') . '.png' . '" height="105" width="105" />';
             } else {
               echo '<img src="' . $plugin->getPathImgIcon() . '" height="105" width="95" />';
             }
@@ -160,7 +160,7 @@ if (class_exists('blea')){
         if (file_exists(dirname(__FILE__) . '/../../core/config/devices/' . $eqLogic->getConfiguration('model') . '/' . $eqLogic->getConfiguration('model') . '.png')) {
           echo '<img src="plugins/xiaomihome/core/config/devices/' . $eqLogic->getConfiguration('model') . '/' . $eqLogic->getConfiguration('model') . '.png' . '" height="105" width="95" />';
         } else {
-          echo '<img src="' . $plugin->getPathImgIcon() . '" height="105" width="95" />';
+          echo '<img src="' . $plugin->getPathImgIcon() . '" height="105" width="105" />';
         }
         echo '<span style="font-size : 1.1em;position:relative; top : 15px;word-break: break-all;white-space: pre-wrap;word-wrap: break-word;"><center>' . $eqLogic->getHumanName(true, true) . '</center></span>';
         echo '</div>';
@@ -192,7 +192,7 @@ if (class_exists('blea')){
           echo '<i class="fa fa-times" style="float:right" title="Offline"></i>';
         }
         echo "<center>";
-        echo '<img src="plugins/xiaomihome/core/config/devices/' . $eqLogic->getConfiguration('model') . '/' . $eqLogic->getConfiguration('model') . '.png' . '" height="105" width="95" />';                echo "</center>";
+        echo '<img src="plugins/xiaomihome/core/config/devices/' . $eqLogic->getConfiguration('model') . '/' . $eqLogic->getConfiguration('model') . '.png' . '" height="105" width="105" />';                echo "</center>";
         echo '<span style="font-size : 1.1em;position:relative; top : 15px;word-break: break-all;white-space: pre-wrap;word-wrap: break-word;"><center>' . $eqLogic->getHumanName(true, true) . '</center></span>';
         echo '</div>';
       }
@@ -218,7 +218,7 @@ if (class_exists('blea')){
         if (file_exists(dirname(__FILE__) . '/../../../blea/core/config/devices/' . $alternateImg . '.jpg')) {
           echo '<img class="lazy" src="plugins/blea/core/config/devices/' . $alternateImg . '.jpg" height="105" width="95" />';
         } elseif (file_exists(dirname(__FILE__) . '/../../../blea/core/config/devices/' . $eqLogic->getConfiguration('device') . '.jpg')) {
-          echo '<img class="lazy" src="plugins/blea/core/config/devices/' . $eqLogic->getConfiguration('device') . '.jpg" height="105" width="95" />';
+          echo '<img class="lazy" src="plugins/blea/core/config/devices/' . $eqLogic->getConfiguration('device') . '.jpg" height="105" width="105" />';
         } else {
           echo '<img src="plugins/blea/core/plugin_info/blea.png" height="105" width="95" />';
         }

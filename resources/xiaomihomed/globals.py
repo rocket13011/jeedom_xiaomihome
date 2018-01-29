@@ -24,6 +24,7 @@ DICT_REFRESH_WIFI ={'purifier' : ['{"id":1,"method":"get_prop","params":["power"
 					'purifier2' : ['{"id":1,"method":"get_prop","params":["power","aqi","led","mode","filter1_life","buzzer","favorite_level","temp_dec","humidity","motor1_speed","led_b","child_lock","bright"]}'],\
 					'humidifier' :['{"id":1,"method":"get_prop","params":["humidity","temp_dec","power","mode","led_b","buzzer","child_lock","limit_hum","trans_level"]}'],\
 					'vacuum' :['{"id":1,"method":"get_status"}','{"id":2,"method":"get_consumable"}'],\
+					'vacuum2' :['{"id":1,"method":"get_status"}','{"id":2,"method":"get_consumable"}'],\
 					'pm25' :['{"id":1,"method":"get_prop","params":["aqi","battery","state"]}'],\
 					'ricecooker' :['{"id":1,"method":"get_prop","params":["all"]}'],\
 					'philipseyecare' :['{"id":1,"method":"get_prop","params":["power","bright","notifystatus","ambstatus","ambvalue","eyecare","scene_num","bls","dvalue"]}'],\
