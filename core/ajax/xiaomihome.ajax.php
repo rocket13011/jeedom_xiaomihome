@@ -29,8 +29,10 @@ try {
 		if (!is_object($eqLogic)) {
 			throw new Exception(__('XiaomiHome eqLogic non trouvé : ', __FILE__) . init('id'));
 		}
-		foreach ($eqLogic->getCmd() as $cmd) {
-			$cmd->remove();
+		if (init('createcommand') == 1){
+			foreach ($eqLogic->getCmd() as $cmd) {
+				$cmd->remove();
+			}
 		}
 		$eqLogic->applyModuleConfiguration($eqLogic->getConfiguration('model'));
 		ajax::success();
