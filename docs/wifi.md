@@ -16,6 +16,7 @@ Trois méthodes existent :
 ### 1ère méthode : MiToolkit
 
 Pour télécharger l'outil : [Cliquez ici](https://github.com/ultrara1n/MiToolkit/releases).
+Il vous faut aussi une version Mi Home compatible, les dernières posent problème : [ApkMirror](https://www.apkmirror.com/apk/xiaomi-inc/mihome/mihome-5-0-19-release/)
 
 * Activez **ADB** sur votre téléphone (dans les options développeur).
 * Lancez le fichier **MiToolkit.exe** en tant qu'admin, sur votre ordinateur.
