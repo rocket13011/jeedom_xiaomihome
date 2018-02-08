@@ -76,7 +76,7 @@
         			"request" : "turn on"
         		},
                 "isVisible": 1,
-                "value": "Luminosité Info",
+                "value": "Statut",
                 "logicalId": "on"
             },
             {
@@ -91,7 +91,7 @@
         			"request" : "turn off"
         		},
                 "isVisible": 1,
-                "value": "Luminosité Info",
+                "value": "Statut",
                 "logicalId": "off"
             },
             {
