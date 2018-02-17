@@ -1,5 +1,10 @@
 # jeedom_xiaomihome
-Xiaomi Home (Aqara, Yeelight, applicances Wifi)
+
+Xiaomi Home (Aqara, Yeelight, applicances Wifi) for your Jeedom
+
+Allow integrations of many of Wifi and Zigbee devices from Xiaomi inside Jeedom. Jeedom will be able to retrieve informations and control your home appliances from Xiaomi.
+
+[More Infos](https://lunarok-domotique.com/plugins-jeedom/xiaomi-home-jeedom/)
 
 ## Yeelight
 
@@ -49,3 +54,43 @@ Xiaomi Home (Aqara, Yeelight, applicances Wifi)
 [Xiaomi Smart Mi Air Purifier Pro](https://www.gearbest.com/living-appliances/pp_536471.html?lkid=10330208)
 
 [Xiaomi Smart Mi Air Purifier 2 (with display)](https://www.gearbest.com/air-purifier/pp_1128423.html?lkid=10330208)
+
+## Aqara, Zigbee devices from the Wifi gateway
+
+[Wifi gateway, required to be the bridge to Jeedom](http://www.gearbest.com/living-appliances/pp_344667.html?lkid=10269386)
+
+[Circble Button](http://www.gearbest.com/smart-light-bulb/pp_257679.html?lkid=10269959)
+
+[Square Button](http://www.gearbest.com/access-control/pp_626695.html?wid=21&lkid=10368929)
+
+[Motion Detector](http://www.gearbest.com/smart-light-bulb/pp_257678.html?lkid=10269971)
+
+[Motion Detectore with light sensor](http://www.gearbest.com/alarm-systems/pp_659226.html?lkid=10368929)
+
+[Door/Window Detector](http://www.gearbest.com/smart-light-bulb/pp_257677.html?lkid=10269970)
+
+[Door/Window Detector - square](http://www.gearbest.com/access-control/pp_626703.html?wid=21&lkid=10368929)
+
+[Temp-Humidity Sensor](http://www.gearbest.com/living-appliances/pp_344665.html?lkid=10269957)
+
+[Temp-Hum-Pression Sensor](http://www.gearbest.com/access-control/pp_626702.html?lkid=10368929)
+
+[Power plug](http://www.gearbest.com/living-appliances/pp_344666.html?lkid=10269961)
+
+[Power outlet](https://www.gearbest.com/alarm-systems/pp_730056.html?lkid=10269961)
+
+[Magic Cube](http://www.gearbest.com/living-appliances/pp_364494.html?lkid=10269960)
+
+[Simple and dual switch](http://www.gearbest.com/alarm-systems/pp_610095.html?lkid=10364933)
+
+[Simple and dual switch outlet version](http://www.gearbest.com/alarm-systems/pp_610096.html?lkid=10364940)
+
+[Smoke Sensor](http://www.gearbest.com/alarm-systems/pp_615081.html?lkid=10368929)
+
+[Gaz Sensor](http://www.gearbest.com/alarm-systems/pp_615080.html?lkid=10368929)
+
+[Water Sensor](https://www.gearbest.com/home-smart-improvements/pp_668897.html?lkid=10743043)
+
+[Curtain Motor](https://www.gearbest.com/access-control/pp_626697.html?lkid=10743043)
+
+
