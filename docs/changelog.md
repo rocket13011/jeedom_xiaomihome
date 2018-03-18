@@ -4,7 +4,7 @@ Important : en cas de mise à jour disponible pour laquelle il n'y a pas d'infor
 
 ## Version du 19 mars 2018
 
-Ajout du nouveau bouton Aqara
+Ajout du nouveau bouton Aqara + variante plafonnier Yeelight
 
 ## Version du 25 février 2018
 
