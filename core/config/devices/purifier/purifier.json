@@ -117,7 +117,7 @@
 							}
 			            },
 							{
-				                "name": "Niveau",
+				                "name": "Niveau Favoris",
 				                "type": "info",
 				                "subtype": "numeric",
 				                "display": {
@@ -125,8 +125,7 @@
 				                },
 				                "isVisible": 1,
 				                "isHistorized": 0,
-								"unite" : "%",
-				                "logicalId": "status::level",
+				                "logicalId": "status::favorite_level",
 				                "template": {
 									"dashboard": "line",
 									"mobile": "line"
@@ -232,7 +231,7 @@
                 "isVisible": 1,
                 "logicalId": "favorite"
             },
-					
+
 			{
                 "name": "Buzzer On",
                 "type": "action",
