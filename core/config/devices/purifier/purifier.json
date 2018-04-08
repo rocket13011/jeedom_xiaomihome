@@ -231,6 +231,24 @@
                 "isVisible": 1,
                 "logicalId": "favorite"
             },
+						{
+                "name": "Définir Niveau Favoris",
+                "type": "action",
+                "subtype": "slider",
+                "display": {
+                    "generic_type": "LIGHT_SLIDER",
+                    "forceReturnLineBefore": 1
+                },
+                "configuration" : {
+                    "switch" : "vol",
+                    "request" : "set_favorite_level",
+                    "minValue" : 0,
+                    "maxValue" : 6
+                },
+                "value": "Niveau Favoris",
+                "isVisible": 1,
+                "logicalId": "level-set"
+            },
 
 			{
                 "name": "Buzzer On",
