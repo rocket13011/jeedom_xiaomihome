@@ -228,7 +228,7 @@
                     "switch" : "volume",
                     "request" : "set_favorite_level",
                     "minValue" : 0,
-                    "maxValue" : 6,
+                    "maxValue" : 6
                 },
                 "value": "Niveau favoris",
                 "isVisible": 1,
