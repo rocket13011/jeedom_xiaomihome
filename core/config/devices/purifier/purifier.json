@@ -100,22 +100,38 @@
 					"mobile": "line"
 				}
             },
-			{
-                "name": "Filtre",
-                "type": "info",
-                "subtype": "numeric",
-                "display": {
-					"generic_type": "DONT"
-                },
-                "isVisible": 1,
-                "isHistorized": 0,
-				"unite" : "%",
-                "logicalId": "status::filter1_life",
-                "template": {
-					"dashboard": "line",
-					"mobile": "line"
-				}
-            },
+						{
+			                "name": "Filtre",
+			                "type": "info",
+			                "subtype": "numeric",
+			                "display": {
+								"generic_type": "DONT"
+			                },
+			                "isVisible": 1,
+			                "isHistorized": 0,
+							"unite" : "%",
+			                "logicalId": "status::filter1_life",
+			                "template": {
+								"dashboard": "line",
+								"mobile": "line"
+							}
+			            },
+							{
+				                "name": "Niveau",
+				                "type": "info",
+				                "subtype": "numeric",
+				                "display": {
+									"generic_type": "DONT"
+				                },
+				                "isVisible": 1,
+				                "isHistorized": 0,
+								"unite" : "%",
+				                "logicalId": "status::level",
+				                "template": {
+									"dashboard": "line",
+									"mobile": "line"
+								}
+				            },
 			{
                 "name": "Moteur",
                 "type": "info",
@@ -216,7 +232,7 @@
                 "isVisible": 1,
                 "logicalId": "favorite"
             },
-						{
+						/* {
 						    "name": "Niveau ventilation",
 						    "type": "info",
 						    "subtype": "numeric",
@@ -244,7 +260,7 @@
 						    "value": "Niveau ventilation",
 						    "isVisible": 1,
 						    "logicalId": "level-set"
-						},
+						}, */
 			{
                 "name": "Buzzer On",
                 "type": "action",
