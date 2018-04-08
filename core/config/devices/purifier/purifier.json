@@ -100,22 +100,22 @@
 					"mobile": "line"
 				}
             },
-						{
-			                "name": "Filtre",
-			                "type": "info",
-			                "subtype": "numeric",
-			                "display": {
-								"generic_type": "DONT"
-			                },
-			                "isVisible": 1,
-			                "isHistorized": 0,
-							"unite" : "%",
-			                "logicalId": "status::filter1_life",
-			                "template": {
-								"dashboard": "line",
-								"mobile": "line"
-							}
-			            },
+			{
+                "name": "Filtre",
+                "type": "info",
+                "subtype": "numeric",
+                "display": {
+					"generic_type": "DONT"
+                },
+                "isVisible": 1,
+                "isHistorized": 0,
+				"unite" : "%",
+                "logicalId": "status::filter1_life",
+                "template": {
+					"dashboard": "line",
+					"mobile": "line"
+				}
+            },
 							{
 				                "name": "Niveau Favoris",
 				                "type": "info",
