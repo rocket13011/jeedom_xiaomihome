@@ -216,6 +216,24 @@
                 "isVisible": 1,
                 "logicalId": "favorite"
             },
+						{
+                "name": "Définir Favoris",
+                "type": "action",
+                "subtype": "numeric",
+                "display": {
+                    "generic_type": "DONT",
+                    "forceReturnLineBefore": 1
+                },
+                "configuration" : {
+                    "switch" : "volume",
+                    "request" : "set_favorite_level",
+                    "minValue" : 0,
+                    "maxValue" : 6,
+                },
+                "value": "Niveau favoris",
+                "isVisible": 1,
+                "logicalId": "status::level"
+            },
 			{
                 "name": "Buzzer On",
                 "type": "action",
