@@ -116,21 +116,21 @@
 					"mobile": "line"
 				}
             },
-							{
-				                "name": "Niveau Favoris",
-				                "type": "info",
-				                "subtype": "numeric",
-				                "display": {
-									"generic_type": "DONT"
-				                },
-				                "isVisible": 1,
-				                "isHistorized": 0,
-				                "logicalId": "status::favorite_level",
-				                "template": {
-									"dashboard": "line",
-									"mobile": "line"
-								}
-				            },
+				{
+	                "name": "Niveau Favoris",
+	                "type": "info",
+	                "subtype": "numeric",
+	                "display": {
+						"generic_type": "DONT"
+	                },
+	                "isVisible": 1,
+	                "isHistorized": 0,
+	                "logicalId": "status::favorite_level",
+	                "template": {
+						"dashboard": "line",
+						"mobile": "line"
+					}
+	            },
 			{
                 "name": "Moteur",
                 "type": "info",
