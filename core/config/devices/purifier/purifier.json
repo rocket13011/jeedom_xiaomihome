@@ -117,7 +117,7 @@
 				}
             },
 			{
-                "name": "Niveau Favoris",
+                "name": "Niveau Favori",
                 "type": "info",
                 "subtype": "numeric",
                 "display": {
@@ -232,7 +232,7 @@
                 "logicalId": "favorite"
             },
 						{
-                "name": "Définir Niveau Favoris",
+                "name": "Définir Niveau Favori",
                 "type": "action",
                 "subtype": "slider",
                 "display": {
