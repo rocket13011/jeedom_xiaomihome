@@ -242,7 +242,7 @@
                 "configuration" : {
                     "switch" : "vol",
                     "request" : "set_favorite_level",
-										"params" : "[#slider#]",
+										"params" : "#slider#",
                     "minValue" : 0,
                     "maxValue" : 6
                 },
