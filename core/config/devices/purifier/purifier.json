@@ -232,35 +232,7 @@
                 "isVisible": 1,
                 "logicalId": "favorite"
             },
-						/* {
-						    "name": "Niveau ventilation",
-						    "type": "info",
-						    "subtype": "numeric",
-						    "display": {
-						        "generic_type": "LIGHT_STATE"
-						    },
-						    "isVisible": 0,
-						    "isHistorized": 0,
-						    "logicalId": "level"
-						},
-						{
-						    "name": "Définir Favoris",
-						    "type": "action",
-						    "subtype": "slider",
-						    "display": {
-						        "generic_type": "LIGHT_SLIDER",
-						        "forceReturnLineBefore": 1
-						    },
-						    "configuration" : {
-						        "switch" : "volume",
-						        "request" : "set_favorite_level",
-						        "minValue" : 0,
-						        "maxValue" : 6
-						    },
-						    "value": "Niveau ventilation",
-						    "isVisible": 1,
-						    "logicalId": "level-set"
-						}, */
+					
 			{
                 "name": "Buzzer On",
                 "type": "action",
