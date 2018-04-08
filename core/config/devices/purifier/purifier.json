@@ -220,9 +220,8 @@
                 "name": "Définir Favoris",
                 "type": "action",
                 "subtype": "numeric",
-                "display": {
-                    "generic_type": "DONT",
-                    "forceReturnLineBefore": 1
+                "display": {									
+										"icon": "<i class=\"fa fa-refresh\"><\/i>"
                 },
                 "configuration" : {
                     "switch" : "volume",
