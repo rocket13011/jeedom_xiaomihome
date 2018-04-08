@@ -19,7 +19,7 @@ DICT_MAPPING_YEELIGHT = {'wait' : SleepTransition,\
 
 IV_AQUARA = bytearray([0x17, 0x99, 0x6d, 0x09, 0x3d, 0x28, 0xdd, 0xb3, 0xba, 0x69, 0x5a, 0x2e, 0x6f, 0x58, 0x56, 0x2e])
 
-DICT_REFRESH_WIFI ={'purifier' : ['{"id":1,"method":"get_prop","params":["power","aqi","led","mode","filter1_life","favorite_level","buzzer","temp_dec","humidity","motor1_speed","led_b","child_lock"]}'],\
+DICT_REFRESH_WIFI ={'purifier' : ['{"id":1,"method":"get_prop","params":["power","aqi","led","mode","filter1_life","buzzer","favorite_level","temp_dec","humidity","motor1_speed","led_b","child_lock"]}'],\
 					'purifierpro' : ['{"id":1,"method":"get_prop","params":["power","aqi","led","mode","filter1_life","buzzer","favorite_level","temp_dec","humidity","motor1_speed","led_b","child_lock","bright"]}'],\
 					'purifier2' : ['{"id":1,"method":"get_prop","params":["power","aqi","led","mode","filter1_life","buzzer","favorite_level","temp_dec","humidity","motor1_speed","led_b","child_lock","bright"]}'],\
 					'humidifier' :['{"id":1,"method":"get_prop","params":["humidity","temp_dec","power","mode","led_b","buzzer","child_lock","limit_hum","trans_level"]}'],\
